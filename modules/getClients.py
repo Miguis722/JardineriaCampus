@@ -20,3 +20,10 @@ def getOneClienteCodigo(codigo):
             "nombre_cliente": val.get('nombre_cliente')
             }
 #Aqui haremos que solo nos de un nombre por codigo
+
+def getAllClientCreditCiudad(limiteCredit, ciudad):
+    clienteCredic = list()
+    for val in cli.clientes:
+        if(val.get('limite_credito') >= limiteCredit and val.get('ciudad') == ciudad):
+            clienteCredic.append(val)
+    return clienteCredic
