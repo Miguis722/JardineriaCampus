@@ -1,6 +1,7 @@
 import modules.getClients as cliente
 
-
+print(cliente.search())
+#Estamos pidiendo solamente los nombres de las personas
 
 
 #logic.cli.clientes.append({"nombre": "prueba"})

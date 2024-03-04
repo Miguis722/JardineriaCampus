@@ -4,3 +4,5 @@ def search():
     clienteNames = list()
     for i,val in enumerate(cli.clientes):
         clienteNames.append(val.get('nombre_cliente'))
+    return clienteNames
+#Estamos pidiendo solamente los nombres de las personas
