@@ -27,3 +27,20 @@ def getAllClientCreditCiudad(limiteCredit, ciudad):
         if(val.get('limite_credito') >= limiteCredit and val.get('ciudad') == ciudad):
             clienteCredic.append(val)
     return clienteCredic
+#Filtro que nos cuele solamente el limite crediticio y la ciudad especifica.
+
+def getAllClientePaisRegionCiudad(pais,region, ciudad):
+    clientZone = list()
+    for val in cli.clientes:
+        if(
+            val.get('pais') == pais and
+            (val.get('region')== region or val.get('region') == None) and
+            (val.get('ciudad')== ciudad or val.get('ciudad') == None)
+            ):
+            
+            clientZone.append(val)
+            
+    return clientZone
+
+            
+            

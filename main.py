@@ -1,7 +1,12 @@
 import modules.getClients as cliente
 
 
-print(cliente.getAllClientCreditCiudad(5000, "Humanes"))
+print(cliente.getAllClientePaisRegionCiudad("France", ))
+#Estamos pidiendo que se nos muestre el pais, la region y la ciudad de todos en general SIN ningúna condición.
+
+
+
+#print(cliente.getAllClientCreditCiudad(5000, "Humanes"))
 #Estamos pidiendo que si la persona pasa del limite crediticio y
 #Su ciudad sea igual a la que se este buscando se nos muestre.
 
