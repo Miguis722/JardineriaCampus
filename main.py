@@ -1,7 +1,7 @@
 import modules.getClients as cliente
 
 
-print(cliente.getAllClientePaisRegionCiudad("France", ))
+print(cliente.getAllClientePaisRegionCiudad("France", None, "Paris" ))
 #Estamos pidiendo que se nos muestre el pais, la region y la ciudad de todos en general SIN ningúna condición.
 
 

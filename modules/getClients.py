@@ -29,12 +29,14 @@ def getAllClientCreditCiudad(limiteCredit, ciudad):
     return clienteCredic
 #Filtro que nos cuele solamente el limite crediticio y la ciudad especifica.
 
-def getAllClientePaisRegionCiudad(pais,region, ciudad):
+def getAllClientePaisRegionCiudad(pais,region=None, ciudad=None):
+    #Si se pone =None, no es necesario que se ponga
     clientZone = list()
     for val in cli.clientes:
         if(
             val.get('pais') == pais and
-            (val.get('region')== region or val.get('region') == None) and
+            (val.get('region')== region or val.get('region') == None) or
+            #Si se usase and, y este no se cumple, daria error y por consiguiente no saldria nada.
             (val.get('ciudad')== ciudad or val.get('ciudad') == None)
             ):
             
