@@ -44,5 +44,8 @@ def getAllClientePaisRegionCiudad(pais,region=None, ciudad=None):
             
     return clientZone
 
-            
-            
+
+def getAllnombreClientesEspañoles():
+    nombreClientesEspañoles = []
+    for val in cli.clientes:
+
