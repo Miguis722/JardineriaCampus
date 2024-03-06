@@ -48,3 +48,5 @@ def getAllNombreApellidosPuestosNoREPVENTAS(puesto):
                 }
             )
     return nombreApellidosPuestosNoREPVENTAS
+
+#Devuelve un listado con el nombre de todos los clientes españoles
