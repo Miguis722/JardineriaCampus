@@ -15,5 +15,5 @@ def getAllNombreApellidoEmailJefe(codigo):
                 }
             )
 #Aqui estamos pidiendo que SI el codigo que pedimos, es igual a alguno de la base de datos, se realice el proceso de IF, el cual cuando finalice va a 
-#Volver todos los datos al punto anterior al if
+#Volver todos los datos al punto anterior al if.
     return nombreApellidoEmailJefe
