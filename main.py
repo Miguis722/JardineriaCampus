@@ -1,8 +1,9 @@
 import modules.getClients as cliente
 import modules.getOficina as oficina
 
+print(oficina.getAllCiudadTelefono("España"),)
 
-print(cliente.getAllClientePaisRegionCiudad("France", None, "Paris" ))
+#print(cliente.getAllClientePaisRegionCiudad("France", None, "Paris" ))
 #Estamos pidiendo que se nos muestre el pais, la region y la ciudad de todos en general SIN ningúna condición.
 
 
