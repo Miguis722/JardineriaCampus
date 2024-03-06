@@ -1,7 +1,14 @@
+from tabulate import tabulate
 import modules.getClients as cliente
 import modules.getOficina as oficina
+import modules.getEmpleados as empleado
 
-print(oficina.getAllCiudadTelefono("España"),)
+
+print(empleado.em.empleados)
+
+
+#print(oficina.getAllCiudadTelefono("España"))
+#Esta pidiendo que se nos muestre todas las oficinas que se encuentren en España.
 
 #print(cliente.getAllClientePaisRegionCiudad("France", None, "Paris" ))
 #Estamos pidiendo que se nos muestre el pais, la region y la ciudad de todos en general SIN ningúna condición.
