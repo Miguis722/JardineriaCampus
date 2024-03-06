@@ -3,8 +3,10 @@ import modules.getClients as cliente
 import modules.getOficina as oficina
 import modules.getEmpleados as empleado
 
+print(tabulate(empleado.getAllNombreApellidoEmailJefe(7), tablefmt="grid"))
+#Estamos pidiendo que se nos muestren todos los Emails de los jefes que tengan el codigo especifico que se pide
 
-print(empleado.em.empleados)
+#print(empleado.em.empleados)
 
 
 #print(tabulate(oficina.getAllCiudadTelefono("España"), tablefmt="grid"))
