@@ -4,8 +4,10 @@ import modules.getOficina as oficina
 import modules.getEmpleados as empleado
 
 
+print(tabulate(empleado.getAllNombreApellidosPuestosNoREPVENTAS("Representante Ventas"),tablefmt="grid"))
 
-print(tabulate(empleado.getAllPuestosNombreApellidoEmail(7),tablefmt="grid"))
+
+#print(tabulate(empleado.getAllPuestosNombreApellidoEmail(7),tablefmt="grid"))
 #Estamos pidiendo que se nos muestre el nombre, los apellidos, el email y el nombre del puesto en el que se encuentra el jefe.
 
 
