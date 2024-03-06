@@ -7,7 +7,7 @@ import modules.getEmpleados as empleado
 print(empleado.em.empleados)
 
 
-#print(oficina.getAllCiudadTelefono("España"))
+#print(tabulate(oficina.getAllCiudadTelefono("España"), tablefmt="grid"))
 #Esta pidiendo que se nos muestre todas las oficinas que se encuentren en España.
 
 #print(cliente.getAllClientePaisRegionCiudad("France", None, "Paris" ))
