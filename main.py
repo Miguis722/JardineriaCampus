@@ -13,7 +13,7 @@ print(tabulate(empleado.getAllPuestosNombreApellidoEmail(7),tablefmt="grid"))
 #Estamos pidiendo que se nos muestren todos los Emails de los jefes que tengan el codigo especifico que se pide
 
 
-
+#Importante resaltar que antes de todo (oficina.) o (empleado.) es el lugar de procedencia de la información.
 #print(tabulate(oficina.getAllCiudadTelefono("España"), tablefmt="grid"))
 #Esta pidiendo que se nos muestre todas las oficinas que se encuentren en España.
 
