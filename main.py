@@ -4,7 +4,11 @@ import modules.getOficina as oficina
 import modules.getEmpleados as empleado
 import modules.getPedido as Pedidos
 
-print(tabulate(Pedidos.getAllProcesoPedido(), tablefmt="grid"))
+print(tabulate(Pedidos.getAllPedidosEntregadosAtrasadosDeTiempo(), tablefmt="grid"))
+#Estamos pidiendo todos los pedidos que se encuentren entregados, pero que se entregaron
+#De forma retardada.
+
+#print(tabulate(Pedidos.getAllProcesoPedido(), tablefmt="grid"))
 #Estamos pidiendo que se nos muestre el estado de todos los pedidos, si estos fueron
 #Ya entregados, pendientes o si fueron rechazados
 
