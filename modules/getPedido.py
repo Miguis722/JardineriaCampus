@@ -61,3 +61,5 @@ def getAllCodigosPedidosClientesFechaEsperadaDODIAS():
                         "fecha_entrega": fecha_entrega
                     })
     return codigosPedidosClientesFechaEsperadaDODIAS
+
+#Devuelve un listado de todos los pedidos que fueron rechazados en 2009
