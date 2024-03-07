@@ -2,10 +2,12 @@ from tabulate import tabulate
 import modules.getClients as cliente
 import modules.getOficina as oficina
 import modules.getEmpleados as empleado
+import modules.getPedido as Pedidos
 
+print(tabulate(Pedidos.getAllProcesoPedido(), tablefmt="grid"))
 
-print(tabulate(cliente.getAllnombreClientesEspañoles(1), tablefmt="grid"))
-
+#print(tabulate(cliente.getAllnombreClientesEspañoles(1), tablefmt="grid"))
+#Estamos pidiendo el nombre de todos los clientes Españoles
 
 #print(tabulate(empleado.getAllNombreApellidosPuestosNoREPVENTAS("Representante Ventas"),tablefmt="grid"))
 #Estamos pidiendo que se nos muestre el nombre, apellido, y el puesto de los que NO SEAN representantes de ventas.
