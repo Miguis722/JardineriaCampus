@@ -4,7 +4,7 @@ import modules.getOficina as oficina
 import modules.getEmpleados as empleado
 import modules.getPedido as Pedidos
 
-print(tabulate(Pedidos.getAllPedidosEntregadosAtrasadosDeTiempo(), tablefmt="grid"))
+print(tabulate(Pedidos.getAllCodigosPedidosClientesFechaEsperadaDODIAS(), tablefmt="grid"))
 #Estamos pidiendo todos los pedidos que se encuentren entregados, pero que se entregaron
 #De forma retardada.
 

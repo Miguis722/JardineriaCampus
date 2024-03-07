@@ -35,3 +35,29 @@ def getAllPedidosEntregadosAtrasadosDeTiempo():
                         "fecha_entrega": fecha_entrega
                     })
     return pedidosEntregados
+
+#Devuelve un listado con el código de pedido, código de cliente, fecha esperada
+#Y fecha de entrega de los pedidos cuya fecha de entrega ha sido al menos dos días antes de la fecha esperada.
+
+def getAllCodigosPedidosClientesFechaEsperadaDODIAS():
+    codigosPedidosClientesFechaEsperadaDODIAS = []
+    for val in ped.pedido:
+        if val.get("estado") == "Entregado":
+            codigo_pedido = val.get("codigo_pedido")
+            codigo_cliente = val.get("codigo_cliente")
+            fecha_esperada = val.get("fecha_esperada")
+            fecha_entrega = val.get("fecha_entrega")
+            if fecha_entrega is not None and fecha_esperada is not None:  # Verificar que ambas fechas no sean None
+                date_1 = "/".join(fecha_entrega.split("-")[::-1])
+                date_2 = "/".join(fecha_esperada.split("-")[::-1])
+                start = datetime.strptime(date_1, "%d/%m/%Y")
+                end = datetime.strptime(date_2, "%d/%m/%Y")
+                diff = end.date() - start.date()
+                if diff.days == 2:  # Si la diferencia es de 2 días (dos días antes de lo esperado)
+                    codigosPedidosClientesFechaEsperadaDODIAS.append({
+                        "codigo_de_pedido": codigo_pedido,
+                        "codigo_de_cliente": codigo_cliente,
+                        "fecha_esperada": fecha_esperada,
+                        "fecha_entrega": fecha_entrega
+                    })
+    return codigosPedidosClientesFechaEsperadaDODIAS
