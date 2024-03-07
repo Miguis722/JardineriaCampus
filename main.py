@@ -5,6 +5,9 @@ import modules.getEmpleados as empleado
 import modules.getPedido as Pedidos
 
 print(tabulate(Pedidos.getAllCodigosPedidosClientesFechaEsperadaDODIAS(), tablefmt="grid"))
+#Estamos pidiendo todos los pedidos que se encuentran entregados, pero que se entregaron DOS dias antes de lo esperado.
+
+#print(tabulate(Pedidos.getAllPedidosEntregadosAtrasadosDeTiempo(), tablefmt="grid"))
 #Estamos pidiendo todos los pedidos que se encuentren entregados, pero que se entregaron
 #De forma retardada.
 
