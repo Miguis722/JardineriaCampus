@@ -5,6 +5,8 @@ import modules.getEmpleados as empleado
 import modules.getPedido as Pedidos
 
 print(tabulate(Pedidos.getAllProcesoPedido(), tablefmt="grid"))
+#Estamos pidiendo que se nos muestre el estado de todos los pedidos, si estos fueron
+#Ya entregados, pendientes o si fueron rechazados
 
 #print(tabulate(cliente.getAllnombreClientesEspañoles(1), tablefmt="grid"))
 #Estamos pidiendo el nombre de todos los clientes Españoles
