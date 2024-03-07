@@ -3,6 +3,7 @@ import modules.getClients as cliente
 import modules.getOficina as oficina
 import modules.getEmpleados as empleado
 import modules.getPedido as Pedidos
+import modules.getPagos as Pagos
 
 print(tabulate(Pedidos.getAllPedidosEntregadosEnEnero(), tablefmt= "grid"))
 #Estamos pidiendo que se nos muestren todos los pedidos de Enero  entregados.
