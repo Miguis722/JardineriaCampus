@@ -87,4 +87,7 @@ def getAllPedidosEntregadosEnEnero():
                 if month == '01':
                     PedidosEntregadosEnEnero.append(val)
     return PedidosEntregadosEnEnero
-#
+
+#Devuelve un listado con todos los pagos que se realizaron en el año 2008 mediante Paypal.
+#Ordene el resultado de mayor a menor.
+
