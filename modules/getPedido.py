@@ -76,3 +76,15 @@ def getAllPedidosRechazados():
 #Una vez más CHAT GPT me da literalmente en el mismo codigo, punto por punto y sin embargo a el 
 #No le mete ningun error.
 
+#Deuelve un listado de todos los pedidos que han sido entregados en el mes de enero de cualquier año.
+def getAllPedidosEntregadosEnEnero():
+    PedidosEntregadosEnEnero = []
+    for val in ped.pedido:
+        if val.get("estado") == "Entregado":
+            fecha_entrega = val.get("fecha_entrega")
+            if fecha_entrega is not None:
+                month = fecha_entrega.split('T')[0].split('-')[1] #Usamos el número 1 al final para que solo le tome importancia a enero
+                if month == '01':
+                    PedidosEntregadosEnEnero.append(val)
+    return PedidosEntregadosEnEnero
+#

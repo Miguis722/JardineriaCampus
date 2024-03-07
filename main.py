@@ -4,7 +4,11 @@ import modules.getOficina as oficina
 import modules.getEmpleados as empleado
 import modules.getPedido as Pedidos
 
-print(tabulate(Pedidos.getAllPedidosRechazados(), tablefmt= "grid"))
+print(tabulate(Pedidos.getAllPedidosEntregadosEnEnero(), tablefmt= "grid"))
+#Estamos pidiendo que se nos muestren todos los pedidos de Enero  entregados.
+
+
+#print(tabulate(Pedidos.getAllPedidosRechazados(), tablefmt= "grid"))
 #Estamos pidiendo que se realice una lista con todos los pedidos que han sido  rechazados
 
 #print(tabulate(Pedidos.getAllCodigosPedidosClientesFechaEsperadaDODIAS(), tablefmt="grid"))
