@@ -4,7 +4,10 @@ import modules.getOficina as oficina
 import modules.getEmpleados as empleado
 import modules.getPedido as Pedidos
 
-print(tabulate(Pedidos.getAllCodigosPedidosClientesFechaEsperadaDODIAS(), tablefmt="grid"))
+print(tabulate(Pedidos.getAllPedidosRechazados(), tablefmt= "grid"))
+#Estamos pidiendo que se realice una lista con todos los pedidos que han sido  rechazados
+
+#print(tabulate(Pedidos.getAllCodigosPedidosClientesFechaEsperadaDODIAS(), tablefmt="grid"))
 #Estamos pidiendo todos los pedidos que se encuentran entregados, pero que se entregaron DOS dias antes de lo esperado.
 
 #print(tabulate(Pedidos.getAllPedidosEntregadosAtrasadosDeTiempo(), tablefmt="grid"))

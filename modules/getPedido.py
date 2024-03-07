@@ -63,3 +63,16 @@ def getAllCodigosPedidosClientesFechaEsperadaDODIAS():
     return codigosPedidosClientesFechaEsperadaDODIAS
 
 #Devuelve un listado de todos los pedidos que fueron rechazados en 2009
+def getAllPedidosRechazados():
+    PedidosRechazados = []
+    for val in ped.pedido:
+        if val.get("estado") =="Rechazado":
+            fecha_entrega = val.get("fecha_entrega")
+            if fecha_entrega is not None:
+                year = fecha_entrega.split('T')[0].split('-')[0]
+                if int(year) == 2009:
+                    PedidosRechazados.append(val)
+    return PedidosRechazados
+#Una vez más CHAT GPT me da literalmente en el mismo codigo, punto por punto y sin embargo a el 
+#No le mete ningun error.
+
