@@ -16,10 +16,10 @@ def getAllClienteName():
 def getOneClienteCodigo(codigo):
     for val in cli.clientes:  
         if(val.get('codigo_cliente') == codigo):
-            return{
+            return({
             "codigo_cliente": val.get('codigo_cliente'),
             "nombre_cliente": val.get('nombre_cliente')
-            }
+            })
 #Aqui haremos que solo nos de un nombre por codigo
 
 def getAllClientCreditCiudad(limiteCredit, ciudad):
@@ -71,3 +71,9 @@ ______                      _             _        _                  _ _       
     opcion = int(input("\nSeleccione una de las opciones: "))
     if(opcion == 1):
         print(tabulate(getAllClienteName(),headers="keys", tablefmt="rounded_grid"))
+    if(opcion == 2):
+        codigoCliente = int(input("Ingrese el codigo del cliente: "))
+        print(tabulate(getOneClienteCodigo(codigoCliente),headers="keys",tablefmt="rounded_grid"))
+    if(opcion == 3):
+        codigoCliente = int(input("Ingrese el codigo del cliente: "))
+        print(tabulate(getAllClientCreditCiudad(codigoCliente), headers="keys", tablefmt="rounded_grid"))
