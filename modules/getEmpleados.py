@@ -1,3 +1,4 @@
+from tabulate import tabulate
 import Storage.empleado as em
 #Devuelve un listado con el nombre, apellidos y email
 #de los empleados cuyo jefe tiene un código de jefe igual a 7.
@@ -8,14 +9,14 @@ def getAllNombreApellidoEmailJefe(codigo):
         if(val.get("codigo_jefe") == codigo):
             nombreApellidoEmailJefe.append(
                 {
-                    "nombre": val.get("nombre"),
-                    "apellidos": (f"{val.get('apellido1')} {val.get('apellido2')}"),
-                    "email": val.get("email"),
-                    "jefe": val.get("codigo_jefe")
+                    "Nombre": val.get("nombre"),
+                    "Apellidos": (f"{val.get('apellido1')} {val.get('apellido2')}"),
+                    "Email": val.get("email"),
+                    "Director": val.get("codigo_jefe")
                 }
             )
-#Aqui estamos pidiendo que SI el codigo que pedimos, es igual a alguno de la base de datos, se realice el proceso de IF, el cual cuando finalice va a 
-#Volver todos los datos al punto anterior al if.
+    #Aqui estamos pidiendo que SI el codigo que pedimos, es igual a alguno de la base de datos, se realice el proceso de IF, el cual cuando finalice va a 
+    #Volver todos los datos al punto anterior al if.
     return nombreApellidoEmailJefe
 
 #Devuelve el nombre del puesto, nombre, apellidos 
@@ -26,10 +27,10 @@ def getAllPuestosNombreApellidoEmail(codigo):
     for val in em.empleados:
         if(val.get("codigo_jefe") == codigo):
             puestosNombreApellidoEmail.append({
-                "nombre": val.get("nombre"),
-                "apellidos": (f"{val.get('apellido1')} {val.get('apellido2')}"),
-                "email": val.get("email"),
-                "nombre_puesto": val.get("puesto")
+                "Nombre": val.get("nombre"),
+                "Apellidos": (f"{val.get('apellido1')} {val.get('apellido2')}"),
+                "Email": val.get("email"),
+                "Nombre del puesto en el que opera": val.get("puesto")
             })
     return puestosNombreApellidoEmail
 
@@ -42,14 +43,14 @@ def getAllNombreApellidosPuestosNoREPVENTAS(puesto):
         if(val.get("puesto") != puesto):
             nombreApellidosPuestosNoREPVENTAS.append(
                 {
-                    "nombre": val.get("nombre"),
-                    "apellidos": (f"{val.get('apellido1')} {val.get('apellido2')}"),
-                    "puesto": val.get("puesto")
+                    "Nombre": val.get("nombre"),
+                    "Apellidos": (f"{val.get('apellido1')} {val.get('apellido2')}"),
+                    "Nombre del puesto en el que opera": val.get("puesto")
                 }
             )
     return nombreApellidosPuestosNoREPVENTAS
 
-#Devuelve un listado con el nombre de todos los clientes españoles
+
 
 
 def menu():
@@ -65,20 +66,18 @@ ______                      _             _                             _       
           | |                                                    | |                                 
           |_|                                                    |_|                                 
      
-        1. Obtener todos los empleados (codigo y nombre)
-        2. Obtener un cliente por el codigo (codigo y nombre)
-        3. Obtener toda la información de un cliente según su limite de credito y ciudad que pertenece (ejemplo: 3000.0, San Francisco)
+        1. Obtener todos los nombres de los empleados dependiendo del número del jefe.
+        2. Obtener nombre del puesto, el nombre del operador y el email del jefe de la empresa
+        3. Obtener toda la información de un  empleado por su puesto
           
 """)
     opcion = int(input("\nSeleccione una de las opciones: "))
     if(opcion == 1):
-        print(tabulate(getAllClienteName(),headers="keys", tablefmt="rounded_grid"))
+        codigo = int(input("Ingrese el codigo de jefe: "))
+        print(tabulate(getAllNombreApellidoEmailJefe(codigo),headers="keys", tablefmt="rounded_grid"))
     if(opcion == 2):
-        codigoCliente = int(input("Ingrese el codigo del cliente: "))
-        print(tabulate(getOneClienteCodigo(codigoCliente),headers="keys",tablefmt="rounded_grid"))
+        codigo = int(input("Ingrese el codigo del empleado: "))
+        print(tabulate(getAllPuestosNombreApellidoEmail(codigo),headers="keys",tablefmt="rounded_grid"))
     if(opcion == 3):
-        codigoCliente = int(input("Ingrese el codigo del cliente: "))
-        print(tabulate(getAllClientCreditCiudad(codigoCliente), headers="keys", tablefmt="rounded_grid"))
-    if(opcion == 4):
-        ciudad = input("Ingrese la ciudad del cliente: ")
-        print(tabulate(getAllClientCiudad(ciudad), headers="keys", tablefmt="rounded_grid"))
+        puesto = int(input("Ingrese el puesto: "))
+        print(tabulate(getAllNombreApellidosPuestosNoREPVENTAS(puesto), headers="keys", tablefmt="rounded_grid"))
