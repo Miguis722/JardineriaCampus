@@ -1,7 +1,7 @@
 from tabulate import tabulate
 import Storage.cliente as cli
 
-def search():
+def getAllClienteName():
     clienteNames = list()
     for val in cli.clientes:
     #No es necesario poner indice y enumerate
@@ -70,4 +70,4 @@ ______                      _             _        _                  _ _       
 """)
     opcion = int(input("\nSeleccione una de las opciones: "))
     if(opcion == 1):
-        print(tabulate(getOneClienteCodigo(1), tablefmt="rounded_grid"))
+        print(tabulate(getAllClienteName(),headers="keys", tablefmt="rounded_grid"))
