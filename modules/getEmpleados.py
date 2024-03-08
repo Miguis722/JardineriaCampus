@@ -81,3 +81,4 @@ ______                      _             _                             _       
     if(opcion == 3):
         puesto = int(input("Ingrese el puesto: "))
         print(tabulate(getAllNombreApellidosPuestosNoREPVENTAS(puesto), headers="keys", tablefmt="rounded_grid"))
+

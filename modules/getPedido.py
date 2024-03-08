@@ -1,3 +1,4 @@
+from tabulate import tabulate
 import Storage.pedido as ped
 from datetime import datetime
 
@@ -90,3 +91,28 @@ def getAllPedidosEntregadosEnEnero():
 
 
 
+def menu():
+    print("""
+
+
+______                      _             _       ______        _ _     _           
+| ___ \                    | |           | |      | ___ \      | (_)   | |          
+| |_/ /___ _ __   ___  _ __| |_ ___    __| | ___  | |_/ /__  __| |_  __| | ___  ___ 
+|    // _ \ '_ \ / _ \| '__| __/ _ \  / _` |/ _ \ |  __/ _ \/ _` | |/ _` |/ _ \/ __|
+| |\ \  __/ |_) | (_) | |  | ||  __/ | (_| |  __/ | | |  __/ (_| | | (_| | (_) \__ \
+\_| \_\___| .__/ \___/|_|   \__\___|  \__,_|\___| \_|  \___|\__,_|_|\__,_|\___/|___/
+          | |                                                                       
+          |_|                                                                      
+          
+        1. Obtener toda la información de los procesos de los pedidos.
+        2. Obtener toda la información de los pedidos entregados fuera de tiempo.
+        3. Obtener toda la información de los pedidos entregados dos dias antes de la fecha esperada.
+          
+""")
+    opcion = int(input("\nSeleccione una de las opciones: "))
+    if(opcion == 1):
+        print(tabulate(getAllProcesoPedido(),headers="keys", tablefmt="rounded_grid"))
+    if(opcion == 2):
+        print(tabulate(getAllPedidosEntregadosAtrasadosDeTiempo(),headers="keys",tablefmt="rounded_grid"))
+    if(opcion == 3):
+        print(tabulate(getAllCodigosPedidosClientesFechaEsperadaDODIAS(), headers="keys", tablefmt="rounded_grid"))
