@@ -26,7 +26,17 @@ def getAllClientCreditCiudad(limiteCredit, ciudad):
     clienteCredic = list()
     for val in cli.clientes:
         if(val.get('limite_credito') >= limiteCredit and val.get('ciudad') == ciudad):
-            clienteCredic.append(val)
+            clienteCredic.append({
+                "Codigo": val.get('codigo_cliente'),
+                "Responsable": val.get('nombre_cliente'),
+                "Director": f"{val.get('nombre_contacto')} {val.get('nombre_contacto')}",
+                "Telefono": val.get("telefono"),
+                "Fax": val.get('fax'),
+                "Direcciones": f"{val.get('pais')} {val.get('linea_direccion2')}",
+                "Origen": f"{val.get('pais')} {val.get('region')} {val.get('ciudad')} {val.get('codigo_postal')}",
+                "Codigo del asesor": val.get('codigo_empleado_rep_ventas'),
+                "Credito": val.get('limite_credito')
+            })
     return clienteCredic
 #Filtro que nos cuele solamente el limite crediticio y la ciudad especifica.
 
