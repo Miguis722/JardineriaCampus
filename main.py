@@ -12,14 +12,14 @@ import modules.getPagos as Pagos
 def menu():
     #https://patorjk.com/software/taag/#p=display&h=2&v=2&f=Slant&t=Menu%20Principal
     #Está pagina web sirve para sacar el arte ASCII
-    print(""""
+    print("""
     __  ___                    ____       _            _             __
    /  |/  /__  ____  __  __   / __ \_____(_)___  _____(_)___  ____ _/ /
   / /|_/ / _ \/ __ \/ / / /  / /_/ / ___/ / __ \/ ___/ / __ \/ __ `/ / 
  / /  / /  __/ / / / /_/ /  / ____/ /  / / / / / /__/ / /_/ / /_/ / /  
 /_/  /_/\___/_/ /_/\__,_/  /_/   /_/  /_/_/ /_/\___/_/ .___/\__,_/_/   
                                                     /_/                
-    
+
                     1. Cliente
                     2. Oficina
                     3. Empleado
@@ -27,14 +27,15 @@ def menu():
           
           """)
     opcion = int(input("\nSeleccione una de las opciones: "))
-    if(opcion == 1):
+    if opcion == 1:
         cliente.menu()
-    elif(opcion == 2):
-        cliente.menu
-    elif(opcion == 3):
-        cliente.menu
-    elif(opcion == 4):
-        cliente.menu
+    elif opcion == 2:
+        oficina.menu()
+    elif opcion == 3:
+        empleado.menu()
+    elif opcion == 4:
+        Pedidos.menu()
+
 menu()
 
 #def menu():
