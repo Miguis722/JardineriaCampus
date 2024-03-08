@@ -12,3 +12,5 @@ def getAllPagosConPayPalEnEl2008():
             PagosPayPal2008.sort(key=lambda x: (x['Fecha'], PagosPayPal2008.index(x)))
     
     return [pagos for pagos in PagosPayPal2008 if "2008" in pagos["Fecha"]]
+
+

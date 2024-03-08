@@ -1,3 +1,4 @@
+from tabulate import tabulate
 import Storage.cliente as cli
 
 def search():
@@ -67,3 +68,6 @@ ______                      _             _        _                  _ _       
         3. Obtener toda la información de un cliente según su limite de credito y ciudad que pertenece (ejemplo: 3000.0, San Francisco)
           
 """)
+    opcion = int(input("\nSeleccione una de las opciones: "))
+    if(opcion == 1):
+        print(tabulate(getOneClienteCodigo(1), tablefmt="rounded_grid"))
