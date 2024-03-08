@@ -56,9 +56,45 @@ def getAllClientePaisRegionCiudad(pais,region=None, ciudad=None):
     return clientZone
 
 
-def getAllnombreClientesEspañoles():
-    nombreClientesEspañoles = []
-    #for val in cli.clientes:
+def getAllClientCiudad(ciudad):
+    clientCiud = list()
+    for val in cli.clientes:
+        if(val.get('ciudad')== ciudad or val.get("ciudad") == None):
+            clientCiud.append(val)
+    return clientCiud
+
+def getAllClientDireccion1():
+    clientDireccion1 = list()
+    for val in cli.clientes:
+        direccion1 = dict({
+            "codigo_cliente": val.get("codigo_cliente"),
+            "nombre_cliente": val.get("nombre_cliente"),
+            "linea_direccion1": val.get("linea_direccion1")
+        })
+        clientDireccion1.append(direccion1)
+    return clientDireccion1
+
+def getAllClientTelefono():
+    clientTelefono = list()
+    for val in cli.clientes:
+        telefono = dict({
+            "codigo_cliente": val.get("codigo_cliente"),
+            "nombre_cliente": val.get("nombre_cliente"),
+            "telefonos": val.get("telefono")
+        })
+        clientTelefono.append(telefono)
+    return clientTelefono
+
+def getAllClientFax():
+    clientFar = list()
+    for val in cli.clientes:
+        fax = dict({
+            "nombre_cliente": val.get("nombre_cliente"),
+            "fax": val.get("fax")
+        })
+        clientFar.append(fax)
+    return clientFar
+
 
 def menu():
     print("""
@@ -87,3 +123,6 @@ ______                      _             _        _                  _ _       
     if(opcion == 3):
         codigoCliente = int(input("Ingrese el codigo del cliente: "))
         print(tabulate(getAllClientCreditCiudad(codigoCliente), headers="keys", tablefmt="rounded_grid"))
+    if(opcion == 4):
+        ciudad = input("Ingrese la ciudad del cliente: ")
+        print(tabulate(getAllClientCiudad(ciudad), headers="keys", tablefmt="rounded_grid"))
