@@ -1,11 +1,56 @@
+import sys
 from tabulate import tabulate
+
 import modules.getClients as cliente
 import modules.getOficina as oficina
 import modules.getEmpleados as empleado
 import modules.getPedido as Pedidos
 import modules.getPagos as Pagos
 
-print(tabulate(Pedidos.getAllPedidosEntregadosEnEnero(), tablefmt= "grid"))
+#En este caso, queremos hacer un menú que haga la recopilación de todos los filtros para que se escojan
+
+def menu():
+    #https://patorjk.com/software/taag/#p=display&h=2&v=2&f=Slant&t=Menu%20Principal
+    #Está pagina web sirve para sacar el arte ASCII
+    print(""""
+    __  ___                    ____       _            _             __
+   /  |/  /__  ____  __  __   / __ \_____(_)___  _____(_)___  ____ _/ /
+  / /|_/ / _ \/ __ \/ / / /  / /_/ / ___/ / __ \/ ___/ / __ \/ __ `/ / 
+ / /  / /  __/ / / / /_/ /  / ____/ /  / / / / / /__/ / /_/ / /_/ / /  
+/_/  /_/\___/_/ /_/\__,_/  /_/   /_/  /_/_/ /_/\___/_/ .___/\__,_/_/   
+                                                    /_/                
+    
+                    1. Cliente
+                    2. Oficina
+                    3. Empleado
+                    4. Pedidos
+          
+          """)
+    opcion = int(input("\nSeleccione una de las opciones"))
+    if(opcion == 1):
+        cliente.menu()
+    elif(opcion == 2):
+        cliente.menu
+    elif(opcion == 3):
+        cliente.menu
+    elif(opcion == 4):
+        cliente.menu
+menu()
+
+#def menu():
+#    contador = 1
+#    print("Menu Principal")
+#    for nombre, objeto in sys.modules.items():
+#        if nombre.startswith("modules"):
+#            modulo_name = getattr(objeto, "__name__", None)
+#            if modulo_name and modulo_name != "modules":
+#                print(f"{contador}. {modulo_name.split('get')[-1]} ")
+#                contador += 1
+
+#menu()
+
+
+#print(tabulate(Pedidos.getAllPedidosEntregadosEnEnero(), tablefmt= "grid"))
 #Estamos pidiendo que se nos muestren todos los pedidos de Enero  entregados.
 
 

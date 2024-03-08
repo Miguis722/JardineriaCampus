@@ -48,3 +48,22 @@ def getAllClientePaisRegionCiudad(pais,region=None, ciudad=None):
 def getAllnombreClientesEspañoles():
     nombreClientesEspañoles = []
     #for val in cli.clientes:
+
+def menu():
+    print("""
+
+
+______                      _             _        _                  _ _            _            
+| ___ \                    | |           | |      | |                | (_)          | |           
+| |_/ /___ _ __   ___  _ __| |_ ___    __| | ___  | | ___  ___    ___| |_  ___ _ __ | |_ ___  ___ 
+|    // _ \ '_ \ / _ \| '__| __/ _ \  / _` |/ _ \ | |/ _ \/ __|  / __| | |/ _ \ '_ \| __/ _ \/ __|
+| |\ \  __/ |_) | (_) | |  | ||  __/ | (_| |  __/ | | (_) \__ \ | (__| | |  __/ | | | ||  __/\__ \
+\_| \_\___| .__/ \___/|_|   \__\___|  \__,_|\___| |_|\___/|___/  \___|_|_|\___|_| |_|\__\___||___/
+          | |                                                                                     
+          |_|                                                                                     
+
+        1. Obtener todos los cientes (codigo y nombre)
+        2. Obtener un cliente por el codigo (codigo y nombre)
+        3. Obtener toda la información de un cliente según su limite de credito y ciudad que pertenece (ejemplo: 3000.0, San Francisco)
+          
+""")
