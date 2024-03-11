@@ -43,7 +43,7 @@ def menu():
                     4. Pedidos
     """)
 
-        opcion = int(input("\nSeleccione una de las : "))
+        opcion = int(input("\nSeleccione una de las opciones: "))
         if opcion == 1:
                 cliente.menu()
                 historial_menu.append(menu)
