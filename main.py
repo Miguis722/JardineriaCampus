@@ -22,10 +22,14 @@ def procesar_tecla():
 
 #En este caso, queremos hacer un menú que haga la recopilación de todos los filtros para que se escojan
 
-def menu():
+#def menu():
     #https://patorjk.com/software/taag/#p=display&h=2&v=2&f=Slant&t=Menu%20Principal
     #Está pagina web sirve para sacar el arte ASCII
-    print("""
+    
+
+# En este caso, queremos hacer un menú que haga la recopilación de todos los filtros para que se escojan
+def menu():
+        print("""
     __  ___                    ____       _            _             __
    /  |/  /__  ____  __  __   / __ \_____(_)___  _____(_)___  ____ _/ /
   / /|_/ / _ \/ __ \/ / / /  / /_/ / ___/ / __ \/ ___/ / __ \/ __ `/ / 
@@ -37,39 +41,39 @@ def menu():
                     2. Oficina
                     3. Empleado
                     4. Pedidos
-          
-          """)
-    
-    opcion = int(input("\nSeleccione una de las opciones: "))
-    if opcion == 1:
-        cliente.menu()
-        historial_menu.append(menu)
-    elif opcion == 2:
-        oficina.menu()
-        historial_menu.append(menu)
-    elif opcion == 3:
-        empleado.menu()
-        historial_menu.append(menu)
-    elif opcion == 4:
-        Pedidos.menu()
-        historial_menu.append(menu)
+    """)
 
-#Definimos función para regresar al menú anterior
+        opcion = int(input("\nSeleccione una de las : "))
+        if opcion == 1:
+                cliente.menu()
+                historial_menu.append(menu)
+        elif opcion == 2:
+                oficina.menu()
+                historial_menu.append(menu)
+        elif opcion == 3:
+                empleado.menu()
+                historial_menu.append(menu)
+        elif opcion == 4:
+                Pedidos.menu()
+                historial_menu.append(menu)
+
+        # Definimos función para regresar al menú anterior
         def regresar_menu():
             if historial_menu:
-                menu_anterior = historial_menu.pop() #Obtener el menú anterior del historial
+                menu_anterior = historial_menu.pop()  # Obtener el menú anterior del historial
                 print("Regresando al menú anterior...")
-                menu_anterior() #Ejecutar el menú anterior
-            else: 
+                menu_anterior()  # Ejecutar el menú anterior
+            else:
                 print("No hay menús anteriores.")
 
-#Hacemos los procesos principales del programa
-                while True:
-                    accion = procesar_tecla()                
-                    if accion == "atras":
-                        regresar_menu()
-                    else:
-                        menu()
+        # Hacemos los procesos principales del programa
+        while True:
+            accion = procesar_tecla()                
+            if accion == "atras":
+                regresar_menu()
+            else:
+                menu()
+menu()
 
 #def menu():
 #    contador = 1
