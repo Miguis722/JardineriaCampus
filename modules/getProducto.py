@@ -23,6 +23,9 @@ def getAllStocksPriceGama(gama):
                 "Proveedor": val.get("proveedor"),
                 "Precio": val.get("precio_venta")
             })
+                StocksPriceGama.sort(key=lambda x: x['Precio'], reverse=True)
+                #Aqui lo que estamos haciendo con el 'Precio' es que ordene de mayor a menor la ventana de precios.
+                #Lambda se utiliza para crear funciones anónimas, es decir, funciones que no tienen un nombre específico asociado.
     return StocksPriceGama #La función SORT sirve para que ordene algo en orden, sin modificarlo.
 
 def menu():
