@@ -25,6 +25,21 @@ def getAllCiudadTelefono(pais):
                 "pais": val.get("pais")
             })
     return ciudadTelefono
+#Devuelve un listado de la información introduciendo el codigo Postal
+
+
+def getAllCodigoPostal(codigoPostalBuscado):
+    codigosPostalesEncontrados = []
+    for val in of.oficina:
+        if val.get("codigo_postal") == codigoPostalBuscado:
+            codigosPostalesEncontrados.append({ 
+                "Codigo de Oficina": val.get("codigo_oficina"),
+                "Region": val.get('region'),
+                "telefono": val.get('telefono'),
+                "Dirección": val.get('linea_direccion1')
+                })
+    return codigosPostalesEncontrados
+
 
 def menu():
     print("""
@@ -42,7 +57,8 @@ def menu():
                                           
           
         1. Obtener las ubicaciones de una oficina en determinada ciudad (codigo de la oficina y ciudad)
-        2. Obtener los datos las oficinas en un pais (pais)
+        2. Obtener los datos las oficinas en un pais (pais).
+        3. Obtener la información de la persona por su codigo Postal.
 """)
     opcion = int(input("\nIngrese la opcion que desea realizar: "))
     if(opcion == 1):
@@ -50,3 +66,6 @@ def menu():
     elif(opcion == 2):
         pais = input("Ingrese el pais: ")
         print(tabulate(getAllCiudadTelefono(pais), headers="keys", tablefmt="fancy_grid"))
+    elif(opcion == 3):
+        codigoPostal = input("Ingrese el codigo Postal: ")
+        print(tabulate(getAllCodigoPostal(codigoPostal), headers="keys", tablefmt="fancy_grid"))
