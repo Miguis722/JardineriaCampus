@@ -5,13 +5,14 @@ import Storage.producto as pr
 #Y que tienen más de 100 unidades en stock. El listado deberá estar ordenado por su precio de venta,
 #mostrando en primer lugar los de mayor precio.
 
+#Forma del profesor Miguel
 #def getAllPriceGama(gama, stock):
     #def gamaStock(val):
         #if(val.get("gama") == gama):
             #return val.get("precio_venta")
     #return pr.producto.sort(key=gamaStock)
 
-
+#Mi forma
 def defAllStocksPriceGama(gama):
     StocksPriceGama = []
     for val in pr.producto:
