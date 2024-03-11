@@ -1,4 +1,5 @@
 import sys
+import msvcrt #Modulo para leer teclas sin bloqueo en windows
 from tabulate import tabulate
 
 import modules.getClients as cliente
@@ -6,6 +7,18 @@ import modules.getOficina as oficina
 import modules.getEmpleados as empleado
 import modules.getPedido as Pedidos
 import modules.getPagos as Pagos
+
+#Lista para almacenar el historial de menús
+historial_menu = []
+
+def procesar_tecla():
+    while True:
+        if msvcrt.kbhit():
+            key = msvcrt.getch()
+            if key == b'\x1b': #Verificar si la tecla presionada es ESC
+                return "atras"
+            else:
+                return key.decode('utf-8')
 
 #En este caso, queremos hacer un menú que haga la recopilación de todos los filtros para que se escojan
 
@@ -26,17 +39,37 @@ def menu():
                     4. Pedidos
           
           """)
+    
     opcion = int(input("\nSeleccione una de las opciones: "))
     if opcion == 1:
         cliente.menu()
+        historial_menu.append(menu)
     elif opcion == 2:
         oficina.menu()
+        historial_menu.append(menu)
     elif opcion == 3:
         empleado.menu()
+        historial_menu.append(menu)
     elif opcion == 4:
         Pedidos.menu()
+        historial_menu.append(menu)
 
-menu()
+#Definimos función para regresar al menú anterior
+        def regresar_menu():
+            if historial_menu:
+                menu_anterior = historial_menu.pop() #Obtener el menú anterior del historial
+                print("Regresando al menú anterior...")
+                menu_anterior() #Ejecutar el menú anterior
+            else: 
+                print("No hay menús anteriores.")
+
+#Hacemos los procesos principales del programa
+                while True:
+                    accion = procesar_tecla()                
+                    if accion == "atras":
+                        regresar_menu()
+                    else:
+                        menu()
 
 #def menu():
 #    contador = 1
