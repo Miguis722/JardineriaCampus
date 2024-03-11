@@ -7,6 +7,7 @@ import modules.getOficina as oficina
 import modules.getEmpleados as empleado
 import modules.getPedido as Pedidos
 import modules.getPagos as Pagos
+import modules.getProducto as producto
 
 #Lista para almacenar el historial de menús
 historial_menu = []
