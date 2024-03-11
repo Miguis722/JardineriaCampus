@@ -13,16 +13,34 @@ import Storage.producto as pr
     #return pr.producto.sort(key=gamaStock)
 
 #Mi forma
-def defAllStocksPriceGama(gama):
+def getAllStocksPriceGama(gama):
     StocksPriceGama = []
     for val in pr.producto:
-        if(val.get("Ornamental") == gama):
-            if (val.get("cantidad_en_stock")  >= 100):
-                gama.append({
+        if(val.get("gama") == gama and val.get("cantidad_en_stock") >= 100):
+                StocksPriceGama.append({
                 "Gama": val.get("gama"),
                 "Codigo": val.get("codigo_producto"),
                 "Proveedor": val.get("proveedor"),
                 "Precio": val.get("precio_venta")
             })
-                StocksPriceGama.sort(key=StocksPriceGama)
-    return gama #La función SORT sirve para que ordene algo en orden, sin modificarlo.
+    return StocksPriceGama #La función SORT sirve para que ordene algo en orden, sin modificarlo.
+
+def menu():
+    print("""
+          
+    
+    ____                        __              __        ____                 __           __            
+   / __ \___  ____  ____  _____/ /____     ____/ /__     / __ \_________  ____/ /_  _______/ /_____  _____
+  / /_/ / _ \/ __ \/ __ \/ ___/ __/ _ \   / __  / _ \   / /_/ / ___/ __ \/ __  / / / / ___/ __/ __ \/ ___/
+ / _, _/  __/ /_/ / /_/ / /  / /_/  __/  / /_/ /  __/  / ____/ /  / /_/ / /_/ / /_/ / /__/ /_/ /_/ (__  ) 
+/_/ |_|\___/ .___/\____/_/   \__/\___/   \__,_/\___/  /_/   /_/   \____/\__,_/\__,_/\___/\__/\____/____/  
+          /_/                                                                                             
+
+                    1. Listar Productos Ornamentales con Stock Mayor o Igual a 100
+        
+          
+          """)
+    opcion = int(input("\nSeleccione una de las opciones: "))
+    if(opcion == 1):
+        gama = (input("Ingrese la gama: "))
+        print(tabulate(getAllStocksPriceGama(gama), headers= "keys", tablefmt="rounded_grid"))
