@@ -22,6 +22,7 @@ def defAllStocksPriceGama(gama):
                 "Gama": val.get("gama"),
                 "Codigo": val.get("codigo_producto"),
                 "Proveedor": val.get("proveedor"),
+                "Precio": val.get("precio_venta")
             })
                 StocksPriceGama.sort(key=StocksPriceGama)
     return gama #La función SORT sirve para que ordene algo en orden, sin modificarlo.
