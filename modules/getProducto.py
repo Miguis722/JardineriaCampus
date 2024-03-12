@@ -28,6 +28,22 @@ def getAllStocksPriceGama(gama):
                 #Lambda se utiliza para crear funciones anónimas, es decir, funciones que no tienen un nombre específico asociado.
     return StocksPriceGama #La función SORT sirve para que ordene algo en orden, sin modificarlo.
 
+def  getAllInfoProducto(codigo):
+    InfoProducto = []
+    for val in pr.producto:
+          if(val.get("codigo_producto") == codigo):
+               InfoProducto.append({
+                    "Nombre": val.get("nombre"),
+                    "Descripción": val.get( "descripcion" ),
+                    "Proovedor": val.get("proveedor"),
+                    "Precio Venta": (f"""${"precio_venta"}"""),
+                    "Cantidad disponible o en Stock": val.get("cantidad_en_stock")
+               })
+               InfoProducto.append(codigo)
+    return InfoProducto
+
+
+
 def menu():
     print("""
           
@@ -40,6 +56,7 @@ def menu():
           /_/                                                                                             
 
                     1. Listar Productos Ornamentales con Stock Mayor o Igual a 100
+                    2. Buscar un producto por su código
         
           
           """)
@@ -47,3 +64,6 @@ def menu():
     if(opcion == 1):
         gama = (input("Ingrese la gama: "))
         print(tabulate(getAllStocksPriceGama(gama), headers= "keys", tablefmt="rounded_grid"))
+    elif(opcion == 2):
+         codigo = str(input("Ingrese el código: "))
+         print(tabulate(getAllInfoProducto(codigo), headers= "keys", tablefmt="rounded_grid"))
