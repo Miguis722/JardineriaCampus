@@ -6,7 +6,7 @@ import Storage.producto as pr
 #mostrando en primer lugar los de mayor precio.
 
 #Forma del profesor Miguel
-def getAllPriceGama(gama, stock):
+def getAllPriceGama(gama, stock=None):
     condiciones = []
     for val in pr.producto:
         if(val.get("gama")== gama and val.get("cantidad_en_stock") >= stock):
@@ -23,8 +23,6 @@ def getAllPriceGama(gama, stock):
    "base": val.get("precio_proovedor")
  }
     return condiciones
-
-
 
 
 
@@ -78,15 +76,19 @@ def menu():
 /_/ |_|\___/ .___/\____/_/   \__/\___/   \__,_/\___/  /_/   /_/   \____/\__,_/\__,_/\___/\__/\____/____/  
           /_/                                                                                             
 
-                    1. Listar Productos Ornamentales con Stock Mayor o Igual a 100
-                    2. Buscar un producto por su código
+                    1. Listar Productos Ornamentales con Stock Mayor o Igual a 100 por metodo del profesor Miguel
+                    2. Listar Productos Ornamentales con Stock Mayor o Igual a 100 por mi metodo
+                    3. Buscar un producto por su código
         
           
           """)
     opcion = int(input("\nSeleccione una de las opciones: "))
     if(opcion == 1):
-        gama = (input("Ingrese la gama: "))
-        print(tabulate(getAllStocksPriceGama(gama), headers= "keys", tablefmt="rounded_grid"))
+        gama = (input("Ingrese la gama (gama, stock): "))
+        print(tabulate(getAllPriceGama(gama), headers= "keys", tablefmt="rounded_grid"))
     elif(opcion == 2):
-         codigo = str(input("Ingrese el código: "))
+         gama = str(input("Ingrese la gama: "))
+         print(tabulate(getAllStocksPriceGama(gama), headers= "keys", tablefmt="rounded_grid"))
+    elif(opcion == 3):
+         codigo = (input("Ingrese el código del producto: "))
          print(tabulate(getAllInfoProducto(codigo), headers= "keys", tablefmt="rounded_grid"))
