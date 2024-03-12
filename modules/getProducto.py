@@ -6,11 +6,27 @@ import Storage.producto as pr
 #mostrando en primer lugar los de mayor precio.
 
 #Forma del profesor Miguel
-#def getAllPriceGama(gama, stock):
-    #def gamaStock(val):
-        #if(val.get("gama") == gama):
-            #return val.get("precio_venta")
-    #return pr.producto.sort(key=gamaStock)
+def getAllPriceGama(gama, stock):
+    condiciones = []
+    for val in pr.producto:
+        if(val.get("gama")== gama and val.get("cantidad_en_stock") >= stock):
+            condiciones.append(val)
+    def price(val):
+        return val.get("precio_venta")
+    condiciones.sort(key=price, reverse = True)
+    for i, val in enumerate(condiciones): 
+            condiciones[i] = {
+   "codigo": val.get("codigo_producto"),
+   "venta": val.get("precio_venta"),
+   "descripcion": f'{val.get("descripcion")[:5]}...' if condiciones[i].get("descripcion") else None,
+   "stock": val.get("cantidad_en_stock"),
+   "base": val.get("precio_proovedor")
+ }
+    return condiciones
+
+
+
+
 
 #Mi forma
 def getAllStocksPriceGama(gama):
@@ -18,15 +34,20 @@ def getAllStocksPriceGama(gama):
     for val in pr.producto:
         if(val.get("gama") == gama and val.get("cantidad_en_stock") >= 100):
                 StocksPriceGama.append({
-                "Gama": val.get("gama"),
                 "Codigo": val.get("codigo_producto"),
+                "Nombre": val.get("nombre"),
+                "Gama": val.get("gama"),
                 "Proveedor": val.get("proveedor"),
-                "Precio": val.get("precio_venta")
+                "Descripcion": val.get("descripcion"),
+                "Precio": val.get("precio_venta"),
+                "Dimensiones": val.get("dimensiones")
+                
             })
                 StocksPriceGama.sort(key=lambda x: x['Precio'], reverse=True)
                 #Aqui lo que estamos haciendo con el 'Precio' es que ordene de mayor a menor la ventana de precios.
                 #Lambda se utiliza para crear funciones anónimas, es decir, funciones que no tienen un nombre específico asociado.
     return StocksPriceGama #La función SORT sirve para que ordene algo en orden, sin modificarlo.
+
 
 def  getAllInfoProducto(codigo):
     InfoProducto = []
@@ -42,6 +63,7 @@ def  getAllInfoProducto(codigo):
                InfoProducto.append(codigo)
     return InfoProducto
 
+          
 
 
 def menu():
