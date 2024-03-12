@@ -49,6 +49,7 @@ def getAllStocksPriceGama(gama):
     return StocksPriceGama #La función SORT sirve para que ordene algo en orden, sin modificarlo.
 
 
+#Generamos una función capaz de darnos TODA, la información acerca de un producto por medio de sus codigos de identificación
 def  getAllInfoProducto(codigo):
     InfoProducto = []
     for val in pr.producto:
