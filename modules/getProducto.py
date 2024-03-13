@@ -76,8 +76,8 @@ def menu():
 /_/ |_|\___/ .___/\____/_/   \__/\___/   \__,_/\___/  /_/   /_/   \____/\__,_/\__,_/\___/\__/\____/____/  
           /_/                                                                                             
 
-                    1. Listar Productos Ornamentales con Stock Mayor o Igual a 100 por metodo del profesor Miguel
-                    2. Listar Productos Ornamentales con Stock Mayor o Igual a 100 por mi metodo
+                    1. Listar Productos Ornamentales con Stock Mayor o Igual a 100 (Metodo del profesor Miguel
+                    2. Listar Productos Ornamentales con Stock Mayor o Igual a 100 (Mi metodo)
                     3. Buscar un producto por su código
         
           
