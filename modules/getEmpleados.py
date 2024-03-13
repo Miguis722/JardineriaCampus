@@ -53,6 +53,7 @@ def getAllNombreApellidosPuestosNoREPVENTAS(puesto):
 
 
 
+
 def menu():
     print("""
 

@@ -95,6 +95,22 @@ def getAllClientFax():
         clientFar.append(fax)
     return clientFar
 
+#Devuelve un listado con todos los clientes que sean de la ciudad de Madrid y cuyo representante de ventas 
+#Tenga el código de empleado 11 o 30.
+
+def getAllClientesDeMadrid():
+    ClientesDeMadrid = []
+    for val in cli.clientes:
+        if(val.get('ciudad') == 'Madrid') and val.get('codigo_empleado_rep_ventas') == 11 or 30:
+            ClientesDeMadrid.append({
+                "Código del cliente" : val.get("codigo_cliente"),
+                "Nombre del cliente" : val.get("nombre_cliente"),
+                "Apellidos del cliente": val.get("apellido_contacto"),
+                "Pais - ciudad": val.get("pais") + "- " + val.get("ciudad")
+            })
+    return  ClientesDeMadrid
+
+
 
 def menu():
     print("""
@@ -111,6 +127,8 @@ def menu():
         1. Obtener todos los cientes (codigo y nombre)
         2. Obtener un cliente por el codigo (codigo y nombre)
         3. Obtener toda la información de un cliente según su limite de credito y ciudad que pertenece (ejemplo: 3000.0, San Francisco)
+        4. Obtener toda la información de un cliente por medio de su ciudad
+        5. Obtener toda la información de clientes en España y que estos tengan el representante de ventar codigo de 11 o 30
           
 """)
     opcion = int(input("\nSeleccione una de las opciones: "))
@@ -125,3 +143,6 @@ def menu():
     if(opcion == 4):
         ciudad = input("Ingrese la ciudad del cliente: ")
         print(tabulate(getAllClientCiudad(ciudad), headers="keys", tablefmt="rounded_grid"))
+    if(opcion ==5):
+        print(tabulate(getAllClientesDeMadrid(), headers="keys", tablefmt="rounded_grid"))
+    
