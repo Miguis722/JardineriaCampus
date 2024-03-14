@@ -1,3 +1,4 @@
+import os
 from tabulate import tabulate
 import Storage.empleado as em
 #Devuelve un listado con el nombre, apellidos y email
@@ -55,6 +56,7 @@ def getAllNombreApellidosPuestosNoREPVENTAS(puesto):
 
 
 def menu():
+    os.system("clear")
     print("""
 
 

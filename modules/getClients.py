@@ -1,3 +1,4 @@
+import os
 from tabulate import tabulate
 import Storage.cliente as cli
 import Storage.empleado as emp
@@ -144,6 +145,7 @@ def getAllClientesPagoRealizadoRepresentantedeventas ():
 
 
 def menu():
+    os.system("clear")
     print("""
 
 

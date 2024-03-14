@@ -1,3 +1,4 @@
+import os
 from tabulate import tabulate
 import Storage.oficina as of
 #Devuelve un listado con el código de
@@ -42,6 +43,7 @@ def getAllCodigoPostal(codigoPostalBuscado):
 
 
 def menu():
+    os.system("clear")
     print("""
 
           

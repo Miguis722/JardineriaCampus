@@ -1,3 +1,4 @@
+import os
 from tabulate import tabulate
 import Storage.pedido as ped
 from datetime import datetime
@@ -92,6 +93,7 @@ def getAllPedidosEntregadosEnEnero():
 
 
 def menu():
+    os.system("clear")
     print("""
 
 

@@ -1,3 +1,4 @@
+import os
 import sys
 import msvcrt #Modulo para leer teclas sin bloqueo en windows
 from tabulate import tabulate
@@ -30,6 +31,7 @@ def procesar_tecla():
 
 # En este caso, queremos hacer un menú que haga la recopilación de todos los filtros para que se escojan
 def menu():
+        os.system("clear")
         print("""
     __  ___                    ____       _            _             __
    /  |/  /__  ____  __  __   / __ \_____(_)___  _____(_)___  ____ _/ /

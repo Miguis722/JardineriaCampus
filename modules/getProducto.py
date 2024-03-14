@@ -1,3 +1,4 @@
+import os
 from tabulate  import tabulate
 import Storage.producto as pr
 
@@ -66,6 +67,7 @@ def  getAllInfoProducto(codigo):
 
 
 def menu():
+    os.system("clear")
     print("""
           
     
