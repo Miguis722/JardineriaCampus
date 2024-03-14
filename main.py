@@ -63,6 +63,8 @@ def menu():
         elif opcion == 5:
                 producto.menu()
                 historial_menu.append(menu)
+        elif opcion == 0:
+            historial_menu
 
         # Definimos función para regresar al menú anterior
         def regresar_menu():
