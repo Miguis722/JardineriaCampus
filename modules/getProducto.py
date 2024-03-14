@@ -1,6 +1,11 @@
 import os
 from tabulate  import tabulate
-import Storage.producto as pr
+import requests
+
+def getAllData():
+    peticion = requests.get("http://172.16.106.112:5001")
+    data = peticion.json()
+    return data
 
 #Devuelve un listado con todos los productos que pertenecen a la gama Ornamentales
 #Y que tienen más de 100 unidades en stock. El listado deberá estar ordenado por su precio de venta,
@@ -9,7 +14,7 @@ import Storage.producto as pr
 #Forma del profesor Miguel
 def getAllPriceGama(gama, stock=None):
     condiciones = []
-    for val in pr.producto:
+    for val in getAllData:
         if(val.get("gama")== gama and val.get("cantidad_en_stock") >= stock):
             condiciones.append(val)
     def price(val):
@@ -30,7 +35,7 @@ def getAllPriceGama(gama, stock=None):
 #Mi forma
 def getAllStocksPriceGama(gama):
     StocksPriceGama = []
-    for val in pr.producto:
+    for val in getAllData:
         if(val.get("gama") == gama and val.get("cantidad_en_stock") >= 100):
                 StocksPriceGama.append({
                 "Codigo": val.get("codigo_producto"),
@@ -51,7 +56,7 @@ def getAllStocksPriceGama(gama):
 #Generamos una función capaz de darnos TODA, la información acerca de un producto por medio de sus codigos de identificación
 def  getAllInfoProducto(codigo):
     InfoProducto = []
-    for val in pr.producto:
+    for val in getAllData:
           if(val.get("codigo_producto") == codigo):
                InfoProducto.append({
                     "Nombre": val.get("nombre"),
