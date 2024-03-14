@@ -2,6 +2,7 @@ import os
 from tabulate import tabulate
 import requests
 
+#Servidor de Empleados
 def getAllDataEmpleados():
     peticion = requests.get("http://172.16.106.112:5002")
     data = peticion.json()
