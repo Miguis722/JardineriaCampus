@@ -64,8 +64,6 @@ def menuProducto():
 
 # En este caso, queremos hacer un menú que haga la recopilación de todos los filtros para que se escojan
 def menu():
-    while True:
-        os.system("clear")
         print("""
     __  ___                    ____       _            _             __
    /  |/  /__  ____  __  __   / __ \_____(_)___  _____(_)___  ____ _/ /
