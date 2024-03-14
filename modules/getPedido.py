@@ -1,11 +1,19 @@
 import os
 from tabulate import tabulate
-import Storage.pedido as ped
+import requests
 from datetime import datetime
+
+#Servidor de Pedidos
+def getAllDataPedidos():
+    peticion = requests.get("http://172.16.106.112:5006")
+    data = peticion.json()
+    return data
+
+
 
 def getAllProcesoPedido():
     ProcesoPedidos = []
-    for val in ped.pedido:
+    for val in getAllDataPedidos:
         ProcesoPedidos.append({
             "codigo_pedido": val.get("codigo_pedido"),
             "estado": val.get('estado')
@@ -19,7 +27,7 @@ def getAllProcesoPedido():
 
 def getAllPedidosEntregadosAtrasadosDeTiempo():
     pedidosEntregados = []
-    for val in ped.pedido:
+    for val in getAllDataPedidos:
         if val.get("estado") == "Entregado":
             fecha_entrega = val.get("fecha_entrega")
             fecha_esperada = val.get("fecha_esperada")
@@ -43,7 +51,7 @@ def getAllPedidosEntregadosAtrasadosDeTiempo():
 
 def getAllCodigosPedidosClientesFechaEsperadaDODIAS():
     codigosPedidosClientesFechaEsperadaDODIAS = []
-    for val in ped.pedido:
+    for val in getAllDataPedidos:
         if val.get("estado") == "Entregado":
             codigo_pedido = val.get("codigo_pedido")
             codigo_cliente = val.get("codigo_cliente")
@@ -67,7 +75,7 @@ def getAllCodigosPedidosClientesFechaEsperadaDODIAS():
 #Devuelve un listado de todos los pedidos que fueron rechazados en 2009
 def getAllPedidosRechazados():
     PedidosRechazados = []
-    for val in ped.pedido:
+    for val in getAllDataPedidos:
         if val.get("estado") =="Rechazado":
             fecha_entrega = val.get("fecha_entrega")
             if fecha_entrega is not None:
@@ -81,7 +89,7 @@ def getAllPedidosRechazados():
 #Deuelve un listado de todos los pedidos que han sido entregados en el mes de enero de cualquier año.
 def getAllPedidosEntregadosEnEnero():
     PedidosEntregadosEnEnero = []
-    for val in ped.pedido:
+    for val in getAllDataPedidos:
         if val.get("estado") == "Entregado":
             fecha_entrega = val.get("fecha_entrega")
             if fecha_entrega is not None:
