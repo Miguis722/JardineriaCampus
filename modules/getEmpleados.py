@@ -1,12 +1,18 @@
 import os
 from tabulate import tabulate
-import Storage.empleado as em
+import requests
+
+def getAllDataEmpleados():
+    peticion = requests.get("http://172.16.106.112:5002")
+    data = peticion.json()
+    return data
+
 #Devuelve un listado con el nombre, apellidos y email
 #de los empleados cuyo jefe tiene un código de jefe igual a 7.
 
 def getAllNombreApellidoEmailJefe(codigo):
     nombreApellidoEmailJefe = []
-    for val in em.empleados:
+    for val in getAllDataEmpleados:
         if(val.get("codigo_jefe") == codigo):
             nombreApellidoEmailJefe.append(
                 {
@@ -25,7 +31,7 @@ def getAllNombreApellidoEmailJefe(codigo):
 
 def getAllPuestosNombreApellidoEmail(codigo):
     puestosNombreApellidoEmail = []
-    for val in em.empleados:
+    for val in getAllDataEmpleados:
         if(val.get("codigo_jefe") == codigo):
             puestosNombreApellidoEmail.append({
                 "Nombre": val.get("nombre"),
@@ -40,7 +46,7 @@ def getAllPuestosNombreApellidoEmail(codigo):
 
 def getAllNombreApellidosPuestosNoREPVENTAS(puesto):
     nombreApellidosPuestosNoREPVENTAS = []
-    for val in em.empleados:
+    for val in getAllDataEmpleados:
         if(val.get("puesto") != puesto):
             nombreApellidosPuestosNoREPVENTAS.append(
                 {
