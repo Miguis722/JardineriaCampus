@@ -32,8 +32,6 @@ def procesar_tecla():
     
 
 def menuProducto():
-    while True:
-        os.system("clear")
         print("""
     ____  _                            _     __               __                                 
    / __ )(_)__  ____ _   _____  ____  (_)___/ /___     ____ _/ /  ____ ___  ___  ____  __  __    
