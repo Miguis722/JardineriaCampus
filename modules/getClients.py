@@ -184,16 +184,21 @@ def menu():
 """)
     opcion = int(input("\nSeleccione una de las opciones: "))
     if(opcion == 1):
-        print(tabulate(getAllClienteName(),headers="keys", tablefmt="rounded_grid"))
+        print(tabulate(getAllDataClientes(),headers="keys", tablefmt="rounded_grid"))
+        print("Presione ""ESC"" para volver al menú principal")
     if(opcion == 2):
         codigoCliente = int(input("Ingrese el codigo del cliente: "))
         print(tabulate(getOneClienteCodigo(codigoCliente),headers="keys",tablefmt="rounded_grid"))
+        print("Presione ""ESC"" para volver al menú principal")
     if(opcion == 3):
         codigoCliente = int(input("Ingrese el codigo del cliente: "))
         print(tabulate(getAllClientCreditCiudad(codigoCliente), headers="keys", tablefmt="rounded_grid"))
+        print("Presione ""ESC"" para volver al menú principal")
     if(opcion == 4):
         ciudad = input("Ingrese la ciudad del cliente: ")
         print(tabulate(getAllClientCiudad(ciudad), headers="keys", tablefmt="rounded_grid"))
+        print("Presione ""ESC"" para volver al menú principal")
     if(opcion ==5):
         print(tabulate(getAllClientesDeMadrid(), headers="keys", tablefmt="rounded_grid"))
+        print("Presione ""ESC"" para volver al menú principal")
     
