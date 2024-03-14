@@ -1,12 +1,19 @@
 import os
 from tabulate import tabulate
-import Storage.oficina as of
+import requests
+
+#Servidor de Oficina
+def getAllDataOficina():
+    peticion = requests.get("http://172.16.106.112:5005")
+    data = peticion.json()
+    return data
+
 #Devuelve un listado con el código de
 #Oficina y la ciudad donde hay oficinas
 
 def getAllCodigoCiudad():
     codigoCiudad = []
-    for val in of.oficina:
+    for val in getAllDataOficina:
         codigoCiudad.append({
             "codigo_oficina": val.get("codigo_oficina"),
             "ciudad": val.get("ciudad")
@@ -17,7 +24,7 @@ def getAllCodigoCiudad():
 
 def getAllCiudadTelefono(pais):
     ciudadTelefono = []
-    for val in of.oficina:
+    for val in getAllDataOficina:
         if(val.get("pais") == pais):
             ciudadTelefono.append({
                 "ciudad": val.get("ciudad"),
@@ -31,7 +38,7 @@ def getAllCiudadTelefono(pais):
 
 def getAllCodigoPostal(codigoPostalBuscado):
     codigosPostalesEncontrados = []
-    for val in of.oficina:
+    for val in getAllDataOficina:
         if val.get("codigo_postal") == codigoPostalBuscado:
             codigosPostalesEncontrados.append({ 
                 "Codigo de Oficina": val.get("codigo_oficina"),
