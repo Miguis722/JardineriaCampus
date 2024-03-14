@@ -1,6 +1,6 @@
 import requests
 
-
+#Servidor de pagos
 def getAllDataPagos():
 	peticion = requests.get("http://172.16.106.112:5004")
 	data= peticion.json()
