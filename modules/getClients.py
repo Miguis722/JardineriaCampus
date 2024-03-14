@@ -162,6 +162,7 @@ def menu():
         3. Obtener toda la información de un cliente según su limite de credito y ciudad que pertenece (ejemplo: 3000.0, San Francisco)
         4. Obtener toda la información de un cliente por medio de su ciudad
         5. Obtener toda la información de clientes en España y que estos tengan el representante de ventar codigo de 11 o 30
+        Si desea volver, precione la tecla: Esc
           
 """)
     opcion = int(input("\nSeleccione una de las opciones: "))
