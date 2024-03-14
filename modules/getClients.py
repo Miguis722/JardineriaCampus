@@ -4,26 +4,26 @@ import requests
 
 #Servidor de Pagos
 def getAllDataPagos():
-	peticion = requests.get("http://172.16.106.112:5004")
+	peticion = requests.get("http://172.16.106.186:5004")
 	data= peticion.json()
 	return data
 
 #Servidor de clientes
 def getAllDataClientes():
-    peticion = requests.get("http://172.16.106.112:5003")
+    peticion = requests.get("http://172.16.106.186:5003")
     data = peticion.json()
     return data
 
 #Servidor de Empleados
 def getAllDataEmpleados():
-    peticion = requests.get("http://172.16.106.112:5002")
+    peticion = requests.get("http://172.16.106.186:5002")
     data = peticion.json()
     return data
 
 
 def getAllClienteName():
     clienteNames = list()
-    for val in getAllDataClientes:
+    for val in getAllDataClientes():
     #No es necesario poner indice y enumerate
         codigoName = dict({
             "codigo_cliente": val.get('codigo_cliente'),
@@ -33,13 +33,17 @@ def getAllClienteName():
     return clienteNames
 #Estamos pidiendo solamente los nombres de las personas
 
-def getOneClienteCodigo(codigo):
-    for val in getAllDataClientes:  
-        if(val.get('codigo_cliente') == codigo):
-            return({
+def getOneClienteCodigo(numero):
+   ClienteCodigo = list()
+   for val in getAllDataClientes():  
+        if val.get('codigo_cliente') == numero:
+            
+            ClienteCodigo.append({
             "codigo_cliente": val.get('codigo_cliente'),
             "nombre_cliente": val.get('nombre_cliente')
             })
+        return ClienteCodigo
+   
 #Aqui haremos que solo nos de un nombre por codigo
 
 def getAllClientCreditCiudad(limiteCredit, ciudad):
@@ -63,7 +67,7 @@ def getAllClientCreditCiudad(limiteCredit, ciudad):
 def getAllClientePaisRegionCiudad(pais,region=None, ciudad=None):
     #Si se pone =None, no es necesario que se ponga
     clientZone = list()
-    for val in getAllDataClientes:
+    for val in getAllDataClientes():
         if(
             val.get('pais') == pais and
             (val.get('region')== region or val.get('region') == None) or
@@ -78,14 +82,14 @@ def getAllClientePaisRegionCiudad(pais,region=None, ciudad=None):
 
 def getAllClientCiudad(ciudad):
     clientCiud = list()
-    for val in getAllDataClientes:
+    for val in getAllDataClientes():
         if(val.get('ciudad')== ciudad or val.get("ciudad") == None):
             clientCiud.append(val)
     return clientCiud
 
 def getAllClientDireccion1():
     clientDireccion1 = list()
-    for val in getAllDataClientes:
+    for val in getAllDataClientes():
         direccion1 = dict({
             "codigo_cliente": val.get("codigo_cliente"),
             "nombre_cliente": val.get("nombre_cliente"),
@@ -96,7 +100,7 @@ def getAllClientDireccion1():
 
 def getAllClientTelefono():
     clientTelefono = list()
-    for val in getAllDataClientes:
+    for val in getAllDataClientes():
         telefono = dict({
             "codigo_cliente": val.get("codigo_cliente"),
             "nombre_cliente": val.get("nombre_cliente"),
@@ -107,7 +111,7 @@ def getAllClientTelefono():
 
 def getAllClientFax():
     clientFar = list()
-    for val in getAllDataClientes:
+    for val in getAllDataClientes():
         fax = dict({
             "nombre_cliente": val.get("nombre_cliente"),
             "fax": val.get("fax")
@@ -120,7 +124,7 @@ def getAllClientFax():
 
 def getAllClientesDeMadrid():
     ClientesDeMadrid = []
-    for val in getAllDataClientes:
+    for val in getAllDataClientes():
         if(val.get('ciudad') == 'Madrid') and val.get('codigo_empleado_rep_ventas') == 11 or 30:
             ClientesDeMadrid.append({
                 "Código del cliente" : val.get("codigo_cliente"),
@@ -187,8 +191,8 @@ def menu():
         print(tabulate(getAllDataClientes(),headers="keys", tablefmt="rounded_grid"))
         print("Presione ""ESC"" para volver al menú principal")
     if(opcion == 2):
-        codigoCliente = int(input("Ingrese el codigo del cliente: "))
-        print(tabulate(getOneClienteCodigo(codigoCliente),headers="keys",tablefmt="rounded_grid"))
+        numero = int(input("Ingrese el codigo del cliente: "))
+        print(tabulate(getOneClienteCodigo(numero),headers="keys",tablefmt="rounded_grid"))
         print("Presione ""ESC"" para volver al menú principal")
     if(opcion == 3):
         codigoCliente = int(input("Ingrese el codigo del cliente: "))

@@ -9,6 +9,8 @@ import modules.getEmpleados as empleado
 import modules.getPedido as Pedidos
 import modules.getPagos as Pagos
 import modules.getProducto as producto
+import modules.postProducto as PostProducto
+
 
 #Lista para almacenar el historial de menús
 historial_menu = []
@@ -29,8 +31,42 @@ def procesar_tecla():
     #Está pagina web sirve para sacar el arte ASCII
     
 
+def menuProducto():
+    while True:
+        os.system("clear")
+        print("""
+    ____  _                            _     __               __                                 
+   / __ )(_)__  ____ _   _____  ____  (_)___/ /___     ____ _/ /  ____ ___  ___  ____  __  __    
+  / __  / / _ \/ __ \ | / / _ \/ __ \/ / __  / __ \   / __ `/ /  / __ `__ \/ _ \/ __ \/ / / /    
+ / /_/ / /  __/ / / / |/ /  __/ / / / / /_/ / /_/ /  / /_/ / /  / / / / / /  __/ / / / /_/ /     
+/_____/_/\___/_/ /_/|___/\___/_/ /_/_/\__,_/\____/ __\__,_/_/  /_/ /_/ /_/\___/_/ /_/\__,_/      
+  ____/ /__     ____  _________  ____/ /_  _______/ /_____  _____                                
+ / __  / _ \   / __ \/ ___/ __ \/ __  / / / / ___/ __/ __ \/ ___/                                
+/ /_/ /  __/  / /_/ / /  / /_/ / /_/ / /_/ / /__/ /_/ /_/ (__  )                                 
+\__,_/\___/  / .___/_/   \____/\__,_/\__,_/\___/\__/\____/____/                                  
+            /_/                                                                                  
+        
+            1. Reportes de los productos
+            2. Guardar, Actualizar y Eliminar productos
+            0. Regresar al menu principal
+          
+            """)
+        opcion = int(input("\nSelecione una de las opciones: "))
+        if(opcion == 1):
+            PostProducto.menu()
+        if(opcion == 2):
+            producto.menu()
+        elif(opcion == 0):
+            break
+
+
+
+
+
+
 # En este caso, queremos hacer un menú que haga la recopilación de todos los filtros para que se escojan
 def menu():
+    while True:
         os.system("clear")
         print("""
     __  ___                    ____       _            _             __
