@@ -101,6 +101,7 @@ def menu():
                 historial_menu.append(menu)
 
         # Definimos función para regresar al menú anterior
+                
         def regresar_menu():
             if historial_menu:
                 menu_anterior = historial_menu.pop()  # Obtener el menú anterior del historial

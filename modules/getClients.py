@@ -1,6 +1,7 @@
 import os
 from tabulate import tabulate
 import requests
+import json
 
 #Servidor de Pagos
 def getAllDataPagos():
@@ -195,8 +196,9 @@ def menu():
         print(tabulate(getOneClienteCodigo(numero),headers="keys",tablefmt="rounded_grid"))
         print("Presione ""ESC"" para volver al menú principal")
     if(opcion == 3):
-        codigoCliente = int(input("Ingrese el codigo del cliente: "))
-        print(tabulate(getAllClientCreditCiudad(codigoCliente), headers="keys", tablefmt="rounded_grid"))
+        limiteCredit = (input("Ingrese el limite de credito: "))
+        ciudad = (input("Ingrese la ciudad a la que pertenece: "))
+        print(tabulate(getAllClientCreditCiudad(limiteCredit, ciudad = None), headers="keys", tablefmt="rounded_grid"))
         print("Presione ""ESC"" para volver al menú principal")
     if(opcion == 4):
         ciudad = input("Ingrese la ciudad del cliente: ")

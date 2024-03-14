@@ -1,5 +1,5 @@
 import requests
-
+import json
 #Servidor de Gamas
 def getAllDataGamas():
     peticion = requests.get("http://172.16.106.112:5007")
