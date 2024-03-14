@@ -1,5 +1,7 @@
 from tabulate import tabulate
 import Storage.cliente as cli
+import Storage.empleado as emp
+import Storage.pago as pag
 
 def getAllClienteName():
     clienteNames = list()
@@ -109,6 +111,35 @@ def getAllClientesDeMadrid():
                 "Pais - ciudad": val.get("pais") + "- " + val.get("ciudad")
             })
     return  ClientesDeMadrid
+
+#1. Obten un listado con el nombre de cada cliente, y el nombre y apellido de su representante de ventas.
+
+def getAllInformacionclienteAndRepresentante ():
+    infoClienteYRepVentas = []
+    for val in cli.clientes, emp.empleados:
+        if(val.get('codigo_empleado_rep_ventas') == val.get("codigo_empleado") and val.get("puesto") == "Representante Ventas"):
+            infoClienteYRepVentas.append({
+                "Nombre del cliente" : val.get("nombre_cliente"),
+                "Apellidos del Cliente": val.get("apellido_contacto"),
+                "Nombre del Representante de ventas": val.get("nombre")
+            })
+    return infoClienteYRepVentas
+#2. Muestra el nombre de los clientes que hayan realizado los pagos junto con el nombre de sus representantes de ventas.
+
+def getAllClientesPagoRealizadoRepresentantedeventas ():
+    ClientesPagoRealizadoRepresentantedeventas = []
+    for val in cli.clientes,  pag.pagos, emp.empleados:
+        if val.get("estado") == "Entregado" or "Pendiente" and val.get("codigo_empleado_rep_ventas") == val.get("codigo_empleado"):
+            ClientesPagoRealizadoRepresentantedeventas.append({
+            "Nombre del Cliente": val.get("nombre_cliente"),
+            "Nombre del representante de ventas": val.get("nombre") + ("apellido1") + ("apellido2")
+                })
+            
+    return ClientesPagoRealizadoRepresentantedeventas
+
+#3. Muestra el nombre de los clientes que no han realizado los pagos junto con el nombre de sus representates de ventas.
+
+
 
 
 
