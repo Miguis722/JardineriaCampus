@@ -1,4 +1,10 @@
-import Storage.pago as pago
+import requests
+
+
+def getAllDataPagos():
+	peticion = requests.get("http://172.16.106.112:5004")
+	data= peticion.json()
+	return data
 
 #Devuelve un listado con todos los pagos que se realizaron en el año 2008 mediante Paypal.
 #Ordene el resultado de mayor a menor.
