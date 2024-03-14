@@ -110,6 +110,7 @@ def menu():
         1. Obtener toda la información de los procesos de los pedidos.
         2. Obtener toda la información de los pedidos entregados fuera de tiempo.
         3. Obtener toda la información de los pedidos entregados dos dias antes de la fecha esperada.
+        Si desea volver, precione la tecla: Esc
           
 """)
     opcion = int(input("\nSeleccione una de las opciones: "))

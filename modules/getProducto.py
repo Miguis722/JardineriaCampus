@@ -81,6 +81,7 @@ def menu():
                     1. Listar Productos Ornamentales con Stock Mayor o Igual a 100 (Metodo del profesor Miguel
                     2. Listar Productos Ornamentales con Stock Mayor o Igual a 100 (Mi metodo)
                     3. Buscar un producto por su código
+                    Si desea volver, precione la tecla: Esc
         
           
           """)

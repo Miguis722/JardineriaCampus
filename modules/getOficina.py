@@ -61,6 +61,8 @@ def menu():
         1. Obtener las ubicaciones de una oficina en determinada ciudad (codigo de la oficina y ciudad)
         2. Obtener los datos las oficinas en un pais (pais).
         3. Obtener la información de la persona por su codigo Postal.
+        Si desea volver, precione la tecla: Esc
+          
 """)
     opcion = int(input("\nIngrese la opcion que desea realizar: "))
     if(opcion == 1):

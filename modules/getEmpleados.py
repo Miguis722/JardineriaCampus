@@ -72,6 +72,7 @@ def menu():
         1. Obtener todos los nombres de los empleados dependiendo del número del jefe.
         2. Obtener nombre del puesto, el nombre del operador y el email del jefe de la empresa
         3. Obtener toda la información de un  empleado por su puesto
+        Si desea volver, precione la tecla: Esc
           
 """)
     opcion = int(input("\nSeleccione una de las opciones: "))
