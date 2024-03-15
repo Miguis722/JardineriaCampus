@@ -75,6 +75,7 @@ def menu():
                     3. Empleado
                     4. Pedidos
                     5. Productos
+                    6. PostProductos
     """)
 
         opcion = int(input("\nSeleccione una de las opciones: "))
@@ -92,6 +93,9 @@ def menu():
                 historial_menu.append(menu)
         elif opcion == 5:
                 producto.menu()
+                historial_menu.append(menu)
+        elif opcion == 6:
+                PostProducto.menu()
                 historial_menu.append(menu)
 
         # Definimos función para regresar al menú anterior
