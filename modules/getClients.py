@@ -47,21 +47,23 @@ def getOneClienteCodigo(numero):
 #Aqui haremos que solo nos de un nombre por codigo
 
 def getAllClientCreditCiudad(limiteCredit, ciudad):
-    clienteCredic = list()
+    clienteCredicCiudad = []  
     for val in getAllDataClientes():
-        if(val.get('limite_credito') >= limiteCredit and val.get('ciudad') == ciudad):
-            clienteCredic.append({
+        limite_credito = float(val.get('limite_credito'))
+        if limite_credito >= float(limiteCredit) and val.get('ciudad') == ciudad:
+            clienteCredicCiudad.append({
                 "Codigo": val.get('codigo_cliente'),
                 "Responsable": val.get('nombre_cliente'),
-                "Director": f"{val.get('nombre_contacto')} {val.get('nombre_contacto')}",
+                "Director": f"{val.get('nombre_contacto')} {val.get('apellido_contacto')}",
                 "Telefono": val.get('telefono'),
                 "Fax": val.get('fax'),
-                "Direcciones": f"{val.get('pais')} {val.get('linea_direccion2')}",
+                "Direcciones": f"{val.get('pais')} {val.get('direccion')}",
                 "Origen": f"{val.get('pais')} {val.get('region')} {val.get('ciudad')} {val.get('codigo_postal')}",
                 "Codigo del asesor": val.get('codigo_empleado_rep_ventas'),
-                "Credito": val.get('limite_credito')
+                "Credito": limite_credito
             })
-    return clienteCredic
+    return clienteCredicCiudad
+
 #Filtro que nos cuele solamente el limite crediticio y la ciudad especifica.
 
 def getAllClientePaisRegionCiudad(pais,region=None, ciudad=None):
