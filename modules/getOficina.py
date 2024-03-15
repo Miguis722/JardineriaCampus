@@ -4,7 +4,7 @@ import requests
 
 #Servidor de Oficina
 def getAllDataOficina():
-    peticion = requests.get("http://172.16.106.112:5005")
+    peticion = requests.get("http://172.16.106.120:5005")
     data = peticion.json()
     return data
 
@@ -13,10 +13,10 @@ def getAllDataOficina():
 
 def getAllCodigoCiudad():
     codigoCiudad = []
-    for val in getAllDataOficina:
+    for val in getAllDataOficina():
         codigoCiudad.append({
-            "codigo_oficina": val.get("codigo_oficina"),
-            "ciudad": val.get("ciudad")
+            "Ciudad": val.get('ciudad'),
+            "Codigo de Oficina": val.get('codigo_oficina')
         })
     return codigoCiudad
 #Devuelve un listado con la ciudad y el teléfono de las
@@ -24,13 +24,13 @@ def getAllCodigoCiudad():
 
 def getAllCiudadTelefono(pais):
     ciudadTelefono = []
-    for val in getAllDataOficina:
-        if(val.get("pais") == pais):
+    for val in getAllDataOficina():
+        if(val.get('pais') == pais):
             ciudadTelefono.append({
-                "ciudad": val.get("ciudad"),
-                "telefono": val.get("telefono"),
-                "oficinas": val.get("codigo_oficina"),
-                "pais": val.get("pais")
+                "Pais": val.get('pais'),
+                "Ciudad": val.get('ciudad'),
+                "Telefono": val.get('telefono'),
+                "Codigo de Oficina": val.get('codigo_oficina')
             })
     return ciudadTelefono
 #Devuelve un listado de la información introduciendo el codigo Postal
@@ -38,10 +38,10 @@ def getAllCiudadTelefono(pais):
 
 def getAllCodigoPostal(codigoPostalBuscado):
     codigosPostalesEncontrados = []
-    for val in getAllDataOficina:
-        if val.get("codigo_postal") == codigoPostalBuscado:
+    for val in getAllDataOficina():
+        if val.get('codigo_postal') == codigoPostalBuscado:
             codigosPostalesEncontrados.append({ 
-                "Codigo de Oficina": val.get("codigo_oficina"),
+                "Codigo de Oficina": val.get('codigo_oficina'),
                 "Region": val.get('region'),
                 "telefono": val.get('telefono'),
                 "Dirección": val.get('linea_direccion1')
@@ -50,7 +50,7 @@ def getAllCodigoPostal(codigoPostalBuscado):
 
 
 def menu():
-    os.system("clear")
+    os.system('clear')
     print("""
 
           
@@ -66,7 +66,7 @@ def menu():
                                           
           
         1. Obtener las ubicaciones de una oficina en determinada ciudad (codigo de la oficina y ciudad)
-        2. Obtener los datos las oficinas en un pais (pais).
+        2. Obtener los datos las oficinas en un pais (España).
         3. Obtener la información de la persona por su codigo Postal.
         Si desea volver, precione la tecla: Esc
           
