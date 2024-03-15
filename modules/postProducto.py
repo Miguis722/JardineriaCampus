@@ -34,7 +34,7 @@ def menu():
                                                                                                           /_/                     /_/                                                  
 
             1. Guardar  Productos
-            2.
+            2. Salir del programa
             3.
           
           
@@ -42,4 +42,5 @@ def menu():
     opcion = int(input("\nSeleccione una de las opciones: "))
     if(opcion == 1):
         print(tabulate(postProducto()))
-        
+    elif(opcion == 2):
+        exit()
