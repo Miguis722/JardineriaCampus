@@ -1,3 +1,4 @@
+import re
 import os
 import sys
 import msvcrt #Modulo para leer teclas sin bloqueo en windows
@@ -78,21 +79,24 @@ def menu():
     """)
 
         opcion = int(input("\nSeleccione una de las opciones: "))
-        if opcion == 1:
-                cliente.menu()
-                historial_menu.append(menu)
-        elif opcion == 2:
-                oficina.menu()
-                historial_menu.append(menu)
-        elif opcion == 3:
-                empleado.menu()
-                historial_menu.append(menu)
-        elif opcion == 4:
-                Pedidos.menu()
-                historial_menu.append(menu)
-        elif opcion == 5:
-                producto.menu()
-                historial_menu.append(menu)
+        if(re.match(r'[0-9]+$', opcion) is not None):
+                opcion = int(opcion)
+                if (opcion>=0 and opcion <=5):
+                        if (opcion == 1):
+                                cliente.menu()
+                                historial_menu.append(menu)
+                        elif opcion == 2:
+                                oficina.menu()
+                                historial_menu.append(menu)
+                        elif opcion == 3:
+                                empleado.menu()
+                                historial_menu.append(menu)
+                        elif opcion == 4:
+                                Pedidos.menu()
+                                historial_menu.append(menu)
+                        elif opcion == 5:
+                                producto.menu()
+                                historial_menu.append(menu)
 
         # Definimos función para regresar al menú anterior
                 
