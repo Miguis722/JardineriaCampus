@@ -3,8 +3,16 @@ import os
 from tabulate import tabulate
 import requests
 import modules.getGamas as gG
+import re
 
 def postProducto():
+    #producto = dict()
+    #while True:
+      #  try:
+     #       if(not producto.get("codigo_producto")):
+    #            codigo = input("Ingrese el codigo del producto: ")
+   #             if(re.match(r'^[A-Z]{2}-[0-9]{3}$', codigo)is not None):
+  #                  data =
     producto = {
         "codigo_producto":input("Ingrese el codigo del producto: "),
         "nombre": input("Ingrese el nombre del producto: "),
@@ -15,8 +23,10 @@ def postProducto():
         "cantidad_en_stock": int(input("Ingrse el cantidad en stock: ")),
         "precio_venta": int(input("Ingrse el precio de ventas: ")),
         "precio_proveedor": int(input("Ingrse el precio del proveedor: "))
+    
         }
     #json-server storage/producto.json -b 5002
+   
     peticion = requests.post("             ", data=json.dumps(producto, indent = 4).encode(("UTF-8")))
     res = peticion.json()
     res["Mensaje"] = "Producto Guardado"
