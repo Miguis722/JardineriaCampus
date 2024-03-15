@@ -5,19 +5,19 @@ import json
 
 #Servidor de Pagos
 def getAllDataPagos():
-	peticion = requests.get("http://172.16.106.186:5004")
+	peticion = requests.get("http://172.16.106.120:5004")
 	data= peticion.json()
 	return data
 
 #Servidor de clientes
 def getAllDataClientes():
-    peticion = requests.get("http://172.16.106.186:5003")
+    peticion = requests.get("http://172.16.106.120:5003")
     data = peticion.json()
     return data
 
 #Servidor de Empleados
 def getAllDataEmpleados():
-    peticion = requests.get("http://172.16.106.186:5002")
+    peticion = requests.get("http://172.16.106.120:5002")
     data = peticion.json()
     return data
 
@@ -35,27 +35,26 @@ def getAllClienteName():
 #Estamos pidiendo solamente los nombres de las personas
 
 def getOneClienteCodigo(numero):
-   ClienteCodigo = list()
-   for val in getAllDataClientes():  
-        if val.get('codigo_cliente') == numero:
-            
+    ClienteCodigo = []
+    for val in getAllDataClientes():  
+        if val.get('codigo_cliente') == numero: 
             ClienteCodigo.append({
             "codigo_cliente": val.get('codigo_cliente'),
             "nombre_cliente": val.get('nombre_cliente')
             })
-        return ClienteCodigo
+    return ClienteCodigo
    
 #Aqui haremos que solo nos de un nombre por codigo
 
 def getAllClientCreditCiudad(limiteCredit, ciudad):
     clienteCredic = list()
-    for val in getAllDataClientes:
+    for val in getAllDataClientes():
         if(val.get('limite_credito') >= limiteCredit and val.get('ciudad') == ciudad):
             clienteCredic.append({
                 "Codigo": val.get('codigo_cliente'),
                 "Responsable": val.get('nombre_cliente'),
                 "Director": f"{val.get('nombre_contacto')} {val.get('nombre_contacto')}",
-                "Telefono": val.get("telefono"),
+                "Telefono": val.get('telefono'),
                 "Fax": val.get('fax'),
                 "Direcciones": f"{val.get('pais')} {val.get('linea_direccion2')}",
                 "Origen": f"{val.get('pais')} {val.get('region')} {val.get('ciudad')} {val.get('codigo_postal')}",
@@ -84,7 +83,7 @@ def getAllClientePaisRegionCiudad(pais,region=None, ciudad=None):
 def getAllClientCiudad(ciudad):
     clientCiud = list()
     for val in getAllDataClientes():
-        if(val.get('ciudad')== ciudad or val.get("ciudad") == None):
+        if(val.get('ciudad')== ciudad or val.get('ciudad') == None):
             clientCiud.append(val)
     return clientCiud
 
@@ -92,9 +91,9 @@ def getAllClientDireccion1():
     clientDireccion1 = list()
     for val in getAllDataClientes():
         direccion1 = dict({
-            "codigo_cliente": val.get("codigo_cliente"),
-            "nombre_cliente": val.get("nombre_cliente"),
-            "linea_direccion1": val.get("linea_direccion1")
+            "codigo_cliente": val.get('codigo_cliente'),
+            "nombre_cliente": val.get('nombre_cliente'),
+            "linea_direccion1": val.get('linea_direccion1')
         })
         clientDireccion1.append(direccion1)
     return clientDireccion1
@@ -103,9 +102,9 @@ def getAllClientTelefono():
     clientTelefono = list()
     for val in getAllDataClientes():
         telefono = dict({
-            "codigo_cliente": val.get("codigo_cliente"),
-            "nombre_cliente": val.get("nombre_cliente"),
-            "telefonos": val.get("telefono")
+            "codigo_cliente": val.get('codigo_cliente'),
+            "nombre_cliente": val.get('nombre_cliente'),
+            "telefonos": val.get('telefono')
         })
         clientTelefono.append(telefono)
     return clientTelefono
@@ -114,8 +113,8 @@ def getAllClientFax():
     clientFar = list()
     for val in getAllDataClientes():
         fax = dict({
-            "nombre_cliente": val.get("nombre_cliente"),
-            "fax": val.get("fax")
+            "nombre_cliente": val.get('nombre_cliente'),
+            "fax": val.get('fax')
         })
         clientFar.append(fax)
     return clientFar
@@ -128,10 +127,10 @@ def getAllClientesDeMadrid():
     for val in getAllDataClientes():
         if(val.get('ciudad') == 'Madrid') and val.get('codigo_empleado_rep_ventas') == 11 or 30:
             ClientesDeMadrid.append({
-                "Código del cliente" : val.get("codigo_cliente"),
-                "Nombre del cliente" : val.get("nombre_cliente"),
-                "Apellidos del cliente": val.get("apellido_contacto"),
-                "Pais - ciudad": val.get("pais") + "- " + val.get("ciudad")
+                "Código del cliente" : val.get('codigo_cliente'),
+                "Nombre del cliente" : val.get('nombre_cliente'),
+                "Apellidos del cliente": val.get('apellido_contacto'),
+                "Pais - ciudad": val.get('pais') + "- " + val.get('ciudad')
             })
     return  ClientesDeMadrid
 
@@ -139,23 +138,23 @@ def getAllClientesDeMadrid():
 
 def getAllInformacionclienteAndRepresentante ():
     infoClienteYRepVentas = []
-    for val in getAllDataClientes, getAllDataEmpleados:
-        if(val.get('codigo_empleado_rep_ventas') == val.get("codigo_empleado") and val.get("puesto") == "Representante Ventas"):
+    for val in getAllDataClientes(), getAllDataEmpleados():
+        if(val.get('codigo_empleado_rep_ventas') == val.get('codigo_empleado') and val.get('puesto') == "Representante Ventas"):
             infoClienteYRepVentas.append({
-                "Nombre del cliente" : val.get("nombre_cliente"),
-                "Apellidos del Cliente": val.get("apellido_contacto"),
-                "Nombre del Representante de ventas": val.get("nombre")
+                "Nombre del cliente" : val.get('nombre_cliente'),
+                "Apellidos del Cliente": val.get('apellido_contacto'),
+                "Nombre del Representante de ventas": val.get('nombre')
             })
     return infoClienteYRepVentas
 #2. Muestra el nombre de los clientes que hayan realizado los pagos junto con el nombre de sus representantes de ventas.
 
 def getAllClientesPagoRealizadoRepresentantedeventas ():
     ClientesPagoRealizadoRepresentantedeventas = []
-    for val in getAllDataClientes,  getAllDataPagos, getAllDataEmpleados:
-        if val.get("estado") == "Entregado" or "Pendiente" and val.get("codigo_empleado_rep_ventas") == val.get("codigo_empleado"):
+    for val in getAllDataClientes(),  getAllDataPagos(), getAllDataEmpleados():
+        if val.get('estado') == "Entregado" or "Pendiente" and val.get('codigo_empleado_rep_ventas') == val.get('codigo_empleado'):
             ClientesPagoRealizadoRepresentantedeventas.append({
-            "Nombre del Cliente": val.get("nombre_cliente"),
-            "Nombre del representante de ventas": val.get("nombre") + ("apellido1") + ("apellido2")
+            "Nombre del Cliente": val.get('nombre_cliente'),
+            "Nombre del representante de ventas": val.get('nombre') + ('apellido1') + ('apellido2')
                 })
             
     return ClientesPagoRealizadoRepresentantedeventas
