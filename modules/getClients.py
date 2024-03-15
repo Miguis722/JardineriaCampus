@@ -208,4 +208,6 @@ def menu():
     if(opcion ==5):
         print(tabulate(getAllClientesDeMadrid(), headers="keys", tablefmt="rounded_grid"))
         print("Presione ""ESC"" para volver al menú principal")
-    
+
+
+#GET CLIENTS : SOLUCIONADO Y DESARROLLADO EN SU TOTALIDAD, SI FUNCIONA, NO SE TOCA.
