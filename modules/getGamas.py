@@ -2,7 +2,7 @@ import requests
 import json
 #Servidor de Gamas
 def getAllDataGamas():
-    peticion = requests.get("http://172.16.106.112:5007")
+    peticion = requests.get("http://172.16.106.120:5007")
     data = peticion.json()
     return data
 
