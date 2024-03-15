@@ -4,7 +4,7 @@ import requests
 
 #Servidor de Empleados
 def getAllDataEmpleados():
-    peticion = requests.get("http://172.16.106.112:5002")
+    peticion = requests.get("http://172.16.106.120:5002")
     data = peticion.json()
     return data
 
@@ -13,14 +13,14 @@ def getAllDataEmpleados():
 
 def getAllNombreApellidoEmailJefe(codigo):
     nombreApellidoEmailJefe = []
-    for val in getAllDataEmpleados:
-        if(val.get("codigo_jefe") == codigo):
+    for val in getAllDataEmpleados():
+        if(val.get('codigo_jefe') == codigo):
             nombreApellidoEmailJefe.append(
                 {
-                    "Nombre": val.get("nombre"),
+                    "Nombre": val.get('nombre'),
                     "Apellidos": (f"{val.get('apellido1')} {val.get('apellido2')}"),
-                    "Email": val.get("email"),
-                    "Director": val.get("codigo_jefe")
+                    "Email": val.get('email'),
+                    "Director": val.get('codigo_jefe')
                 }
             )
     #Aqui estamos pidiendo que SI el codigo que pedimos, es igual a alguno de la base de datos, se realice el proceso de IF, el cual cuando finalice va a 
@@ -32,13 +32,13 @@ def getAllNombreApellidoEmailJefe(codigo):
 
 def getAllPuestosNombreApellidoEmail(codigo):
     puestosNombreApellidoEmail = []
-    for val in getAllDataEmpleados:
-        if(val.get("codigo_jefe") == codigo):
+    for val in getAllDataEmpleados():
+        if(val.get('codigo_jefe') == codigo):
             puestosNombreApellidoEmail.append({
-                "Nombre": val.get("nombre"),
+                "Nombre": val.get('nombre'),
                 "Apellidos": (f"{val.get('apellido1')} {val.get('apellido2')}"),
-                "Email": val.get("email"),
-                "Nombre del puesto en el que opera": val.get("puesto")
+                "Email": val.get('email'),
+                "Nombre del puesto en el que opera": val.get('puesto')
             })
     return puestosNombreApellidoEmail
 
@@ -47,13 +47,13 @@ def getAllPuestosNombreApellidoEmail(codigo):
 
 def getAllNombreApellidosPuestosNoREPVENTAS(puesto):
     nombreApellidosPuestosNoREPVENTAS = []
-    for val in getAllDataEmpleados:
-        if(val.get("puesto") != puesto):
+    for val in getAllDataEmpleados():
+        if(val.get('puesto') != puesto):
             nombreApellidosPuestosNoREPVENTAS.append(
                 {
-                    "Nombre": val.get("nombre"),
+                    "Nombre": val.get('nombre'),
                     "Apellidos": (f"{val.get('apellido1')} {val.get('apellido2')}"),
-                    "Nombre del puesto en el que opera": val.get("puesto")
+                    "Nombre del puesto en el que opera": val.get('puesto')
                 }
             )
     return nombreApellidosPuestosNoREPVENTAS
@@ -90,6 +90,6 @@ def menu():
         codigo = int(input("Ingrese el codigo del empleado: "))
         print(tabulate(getAllPuestosNombreApellidoEmail(codigo),headers="keys",tablefmt="rounded_grid"))
     if(opcion == 3):
-        puesto = int(input("Ingrese el puesto: "))
+        puesto = (input("Ingrese el puesto: "))
         print(tabulate(getAllNombreApellidosPuestosNoREPVENTAS(puesto), headers="keys", tablefmt="rounded_grid"))
 
