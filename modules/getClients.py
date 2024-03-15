@@ -199,7 +199,7 @@ def menu():
     if(opcion == 3):
         limiteCredit = (input("Ingrese el limite de credito: "))
         ciudad = (input("Ingrese la ciudad a la que pertenece: "))
-        print(tabulate(getAllClientCreditCiudad(limiteCredit, ciudad = None), headers="keys", tablefmt="rounded_grid"))
+        print(tabulate(getAllClientCreditCiudad(limiteCredit, ciudad), headers="keys", tablefmt="rounded_grid"))
         print("Presione ""ESC"" para volver al menú principal")
     if(opcion == 4):
         ciudad = input("Ingrese la ciudad del cliente: ")
