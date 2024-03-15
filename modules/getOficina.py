@@ -65,8 +65,8 @@ def menu():
                  [__|                                                                                                
                                           
           
-        1. Obtener las ubicaciones de una oficina en determinada ciudad (codigo de la oficina y ciudad)
-        2. Obtener los datos las oficinas en un pais (España).
+        1. Obtener las ubicaciones de una oficina en determinada ciudad
+        2. Obtener los datos las oficinas en un pais (Ejemplo: España).
         3. Obtener la información de la persona por su codigo Postal.
         Si desea volver, precione la tecla: Esc
           
