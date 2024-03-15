@@ -54,8 +54,6 @@ def menuProducto():
             PostProducto.menu()
         if(opcion == 2):
             producto.menu()
-        elif(opcion == 0):
-            break
 
 
 
