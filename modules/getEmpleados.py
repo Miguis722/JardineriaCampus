@@ -1,20 +1,21 @@
 import os
+import json
 from tabulate import tabulate
 import requests
 
 #Servidor de Empleados
 def getAllDataEmpleados():
-    peticion = requests.get("http://172.16.106.120:5002")
+    peticion = requests.get("http://192.168.80.16:5002")
     data = peticion.json()
     return data
 
 #Devuelve un listado con el nombre, apellidos y email
 #de los empleados cuyo jefe tiene un código de jefe igual a 7.
 
-def getAllNombreApellidoEmailJefe(codigo):
+def getAllNombreApellidoEmailJefe(codigojefe):
     nombreApellidoEmailJefe = []
     for val in getAllDataEmpleados():
-        if(val.get('codigo_jefe') == codigo):
+        if(codigojefe == val.get('codigo_jefe')):
             nombreApellidoEmailJefe.append(
                 {
                     "Nombre": val.get('nombre'),
@@ -34,12 +35,14 @@ def getAllPuestosNombreApellidoEmail(codigo):
     puestosNombreApellidoEmail = []
     for val in getAllDataEmpleados():
         if(val.get('codigo_jefe') == codigo):
-            puestosNombreApellidoEmail.append({
+            puestosNombreApellidoEmail.append(
+                {
                 "Nombre": val.get('nombre'),
                 "Apellidos": (f"{val.get('apellido1')} {val.get('apellido2')}"),
                 "Email": val.get('email'),
                 "Nombre del puesto en el que opera": val.get('puesto')
-            })
+            }
+            )
     return puestosNombreApellidoEmail
 
 #Devuelve un listado con el nombre, apellidos y 
@@ -48,7 +51,7 @@ def getAllPuestosNombreApellidoEmail(codigo):
 def getAllNombreApellidosPuestosNoREPVENTAS(puesto):
     nombreApellidosPuestosNoREPVENTAS = []
     for val in getAllDataEmpleados():
-        if(val.get('puesto') != puesto):
+        if(val.get('puesto') != puesto) and val.get('puesto') != "Representante Ventas":
             nombreApellidosPuestosNoREPVENTAS.append(
                 {
                     "Nombre": val.get('nombre'),
@@ -82,13 +85,14 @@ def menu():
         Si desea volver, precione la tecla: Esc
           
 """)
+    
     opcion = int(input("\nSeleccione una de las opciones: "))
     if(opcion == 1):
-        codigo = int(input("Ingrese el codigo de jefe: "))
-        print(tabulate(getAllNombreApellidoEmailJefe(codigo),headers="keys", tablefmt="rounded_grid"))
+        codigojefe = (input("Ingrese el codigo de jefe: "))
+        print(tabulate(getAllNombreApellidoEmailJefe(codigojefe),headers="keys", tablefmt="rounded_grid"))
     if(opcion == 2):
-        codigo = int(input("Ingrese el codigo del empleado: "))
-        print(tabulate(getAllPuestosNombreApellidoEmail(codigo),headers="keys",tablefmt="rounded_grid"))
+        codigo = (input("Ingrese el codigo del empleado: "))
+        print(tabulate(getAllPuestosNombreApellidoEmail(codigo),headers="keys", tablefmt="rounded_grid"))
     if(opcion == 3):
         puesto = (input("Ingrese el puesto: "))
         print(tabulate(getAllNombreApellidosPuestosNoREPVENTAS(puesto), headers="keys", tablefmt="rounded_grid"))

@@ -5,19 +5,19 @@ import json
 
 #Servidor de Pagos
 def getAllDataPagos():
-	peticion = requests.get("http://172.16.106.120:5004")
+	peticion = requests.get("http://192.168.80.16:5004")
 	data= peticion.json()
 	return data
 
 #Servidor de clientes
 def getAllDataClientes():
-    peticion = requests.get("http://172.16.106.120:5003")
+    peticion = requests.get("http://192.168.80.16:5003")
     data = peticion.json()
     return data
 
 #Servidor de Empleados
 def getAllDataEmpleados():
-    peticion = requests.get("http://172.16.106.120:5002")
+    peticion = requests.get("http://192.168.80.16:5002")
     data = peticion.json()
     return data
 
