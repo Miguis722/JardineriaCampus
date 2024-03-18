@@ -3,6 +3,10 @@ from tabulate import tabulate
 import requests
 import json
 
+#json-server storage/producto.json -b 5001
+
+
+
 #Servidor de Pagos
 def getAllDataPagos():
 	peticion = requests.get("http://192.168.80.16:5004")
@@ -21,7 +25,7 @@ def getAllDataEmpleados():
     data = peticion.json()
     return data
 
-
+#Obtener el nombre de todos los clientes.
 def getAllClienteName():
     clienteNames = list()
     for val in getAllDataClientes():
@@ -34,10 +38,11 @@ def getAllClienteName():
     return clienteNames
 #Estamos pidiendo solamente los nombres de las personas
 
+#Obtener un cliente por el codigo
 def getOneClienteCodigo(numero):
     ClienteCodigo = []
     for val in getAllDataClientes():  
-        if val.get('codigo_cliente') == numero: 
+        if (val.get('codigo_cliente') == numero): 
             ClienteCodigo.append({
             "codigo_cliente": val.get('codigo_cliente'),
             "nombre_cliente": val.get('nombre_cliente')
