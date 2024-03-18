@@ -32,6 +32,17 @@ def postProducto():
     res["Mensaje"] = "Producto Guardado"
     return [res]
 
+
+def DeleteProducto(id):
+    peticion = requests.delete(f"http://{id}")
+    if(peticion.status_code ==204):
+        return [{
+            "body":{
+                "message": "producto eliminado correctamente",
+                "id": id
+            }
+        }]
+    
 def menu():
     print("""
 
