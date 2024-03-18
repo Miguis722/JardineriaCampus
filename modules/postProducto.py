@@ -4,6 +4,7 @@ from tabulate import tabulate
 import requests
 import modules.getGamas as gG
 import re
+import modules.getProducto as gP
 
 def postProducto():
     #producto = dict()
@@ -32,16 +33,37 @@ def postProducto():
     res["Mensaje"] = "Producto Guardado"
     return [res]
 
-
-def DeleteProducto(id):
-    peticion = requests.delete(f"http://{id}")
-    if(peticion.status_code ==204):
-        return [{
-            "body":{
-                "message": "producto eliminado correctamente",
-                "id": id
+#Primera forma de eliminar  un dato (Metodo profesor: 1)
+#def DeleteProducto(id):
+ #   peticion = requests.delete(f"http://{id}")
+  #  if(peticion.status_code ==204):
+   #     return [{
+    #        "body":{
+     #           "message": "producto eliminado correctamente",
+      #          "id": id
+       #     }
+        #}]
+    
+#Segunda forma de eliminar un dato (Metodo profesor: 2)
+def deleteProducto(id):
+    data = gP.getProductCodigo(id)
+    if (len(data)):
+        peticion = requests.delete(f"http://.../productos/{id}")
+        if(peticion.status_code == 204):
+            data.append({"message": "producto eliminado correctamente"})
+            return {
+                "body": data,
+                "status": peticion.status_code,
             }
-        }]
+        else:
+            return {
+                "body": [{
+                    "message": "producto no encontrado",
+                    "id": id
+                }],
+                "status": 400,
+            }
+
     
 def menu():
     print("""
