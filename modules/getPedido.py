@@ -30,6 +30,8 @@ def getAllPedidosEntregadosAtrasadosDeTiempo():
     peticion = requests.get("http://")
     data = peticion.json
 
+#SELECCIONAMOS TODo EL TEXTO Y PRESIONAMOS: CTRL + K + C
+    
 #Mi metodo
 # def getAllPedidosEntregadosAtrasadosDeTiempo():
 #     pedidosEntregados = []
