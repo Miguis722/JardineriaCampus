@@ -1,8 +1,11 @@
+from tabulate import tabulate
+
 import os
 import sys
-import msvcrt #Modulo para leer teclas sin bloqueo en windows
-from tabulate import tabulate
 import json
+import msvcrt #Modulo para leer teclas sin bloqueo en windows
+
+
 import modules.getClients as cliente
 import modules.getOficina as oficina
 import modules.getEmpleados as empleado
@@ -57,17 +60,17 @@ def menuProducto():
 
 
 
-if  (__name__=='__main__'):
+#if  (__name__=='__main__'):
 
-    with open("./JardineriaCampus/storage/producto.json", "r") as f:
-        fichero = f.read()
-        data = json.loads(fichero)
-        for i, val in enumerate(data):
-            data[i]["id"] = (i+1)
-        data = json.dumps(data, indent=4).encode("utf-8")
-        with open("./JardineriaCampus/storage/producto.json", "wb+") as f1:
-            f1.write(data)
-            f1.close()
+ #   with open("./JardineriaCampus/storage/producto.json", "r") as f:
+  #      fichero = f.read()
+   #     data = json.loads(fichero)
+    #    for i, val in enumerate(data):
+     #       data[i]["id"] = (i+1)
+      #  data = json.dumps(data, indent=4).encode("utf-8")
+       # with open("./JardineriaCampus/storage/producto.json", "wb+") as f1:
+        #    f1.write(data)
+         #   f1.close()
 
 # En este caso, queremos hacer un menú que haga la recopilación de todos los filtros para que se escojan
 def menu():
