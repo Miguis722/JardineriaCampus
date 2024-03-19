@@ -38,6 +38,7 @@ def procesar_tecla():
 
 def menuProducto():
     while True:
+        os.system("Cleanmgr")
         print("""
     ____  _                            _     __               __                                 
    / __ )(_)__  ____ _   _____  ____  (_)___/ /___     ____ _/ /  ____ ___  ___  ____  __  __    
@@ -80,7 +81,7 @@ def menuProducto():
 # En este caso, queremos hacer un menú que haga la recopilación de todos los filtros para que se escojan
 def menu():
     while True:
-        os.system('clear')
+        os.system("Cleanmgr")
         print("""
     __  ___                    ____       _            _             __
    /  |/  /__  ____  __  __   / __ \_____(_)___  _____(_)___  ____ _/ /
