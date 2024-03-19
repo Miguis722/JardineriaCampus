@@ -1,8 +1,10 @@
 from tabulate import tabulate
 
+import re
 import os
 import sys
 import json
+
 import msvcrt #Modulo para leer teclas sin bloqueo en windows
 
 

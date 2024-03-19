@@ -30,7 +30,8 @@ def getAllPedidosEntregadosAtrasadosDeTiempo():
     peticion = requests.get("http://")
     data = peticion.json()
 
-#SELECCIONAMOS TODo EL TEXTO Y PRESIONAMOS: CTRL + K + C
+#SELECCIONAMOS TODo EL TEXTO Y PRESIONAMOS: CTRL + K + C --> Ponemos el #
+#SELECCIONAMOS TODo EL TEXTO Y PRESIONAMOS: CTRL + K + U --> Quitamos el #
     
 #Mi metodo
 # def getAllPedidosEntregadosAtrasadosDeTiempo():
