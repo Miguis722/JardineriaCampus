@@ -29,10 +29,10 @@ def getAllPedidosEntregadosAtrasadosDeTiempo():
     pedidosEntregados = []
     for val in getAllDataPedidos:
         if val.get("estado") == "Entregado":
-            fecha_entrega = val.get("fecha_entrega")
+            fechaEntrega = val.get("fechaEntrega")
             fecha_esperada = val.get("fecha_esperada")
-            if fecha_entrega is not None and fecha_esperada is not None:
-                date_1 = "/".join(fecha_entrega.split("-")[::-1])
+            if fechaEntrega is not None and fecha_esperada is not None:
+                date_1 = "/".join(fechaEntrega.split("-")[::-1])
                 date_2 = "/".join(fecha_esperada.split("-")[::-1])
                 start = datetime.strptime(date_1, "%d/%m/%Y")
                 end = datetime.strptime(date_2, "%d/%m/%Y")
@@ -42,7 +42,7 @@ def getAllPedidosEntregadosAtrasadosDeTiempo():
                         "codigo_de_pedido": val.get("codigo_pedido"),
                         "codigo_de_cliente": val.get("codigo_cliente"),
                         "fecha_esperada": fecha_esperada,
-                        "fecha_entrega": fecha_entrega
+                        "fechaEntrega": fechaEntrega
                     })
     return pedidosEntregados
 
@@ -56,9 +56,9 @@ def getAllCodigosPedidosClientesFechaEsperadaDODIAS():
             codigo_pedido = val.get("codigo_pedido")
             codigo_cliente = val.get("codigo_cliente")
             fecha_esperada = val.get("fecha_esperada")
-            fecha_entrega = val.get("fecha_entrega")
-            if fecha_entrega is not None and fecha_esperada is not None:  # Verificar que ambas fechas no sean None
-                date_1 = "/".join(fecha_entrega.split("-")[::-1])
+            fechaEntrega = val.get("fechaEntrega")
+            if fechaEntrega is not None and fecha_esperada is not None:  # Verificar que ambas fechas no sean None
+                date_1 = "/".join(fechaEntrega.split("-")[::-1])
                 date_2 = "/".join(fecha_esperada.split("-")[::-1])
                 start = datetime.strptime(date_1, "%d/%m/%Y")
                 end = datetime.strptime(date_2, "%d/%m/%Y")
@@ -68,7 +68,7 @@ def getAllCodigosPedidosClientesFechaEsperadaDODIAS():
                         "codigo_de_pedido": codigo_pedido,
                         "codigo_de_cliente": codigo_cliente,
                         "fecha_esperada": fecha_esperada,
-                        "fecha_entrega": fecha_entrega
+                        "fechaEntrega": fechaEntrega
                     })
     return codigosPedidosClientesFechaEsperadaDODIAS
 
@@ -77,9 +77,9 @@ def getAllPedidosRechazados():
     PedidosRechazados = []
     for val in getAllDataPedidos:
         if val.get("estado") =="Rechazado":
-            fecha_entrega = val.get("fecha_entrega")
-            if fecha_entrega is not None:
-                year = fecha_entrega.split('T')[0].split('-')[0]
+            fechaEntrega = val.get("fechaEntrega")
+            if fechaEntrega is not None:
+                year = fechaEntrega.split('T')[0].split('-')[0]
                 if int(year) == 2009:
                     PedidosRechazados.append(val)
     return PedidosRechazados
@@ -91,9 +91,9 @@ def getAllPedidosEntregadosEnEnero():
     PedidosEntregadosEnEnero = []
     for val in getAllDataPedidos:
         if val.get("estado") == "Entregado":
-            fecha_entrega = val.get("fecha_entrega")
-            if fecha_entrega is not None:
-                month = fecha_entrega.split('T')[0].split('-')[1] #Usamos el número 1 al final para que solo le tome importancia a enero
+            fechaEntrega = val.get("fechaEntrega")
+            if fechaEntrega is not None:
+                month = fechaEntrega.split('T')[0].split('-')[1] #Usamos el número 1 al final para que solo le tome importancia a enero
                 if month == '01':
                     PedidosEntregadosEnEnero.append(val)
     return PedidosEntregadosEnEnero
