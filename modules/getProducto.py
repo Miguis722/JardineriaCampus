@@ -3,7 +3,7 @@ from tabulate  import tabulate
 import requests
 
 def getAllData():
-    peticion = requests.get("http://172.16.106.112:5001")
+    peticion = requests.get("http://172.16.106.137:5001")
     data = peticion.json()
     return data
 
