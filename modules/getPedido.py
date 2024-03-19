@@ -27,7 +27,7 @@ def getAllProcesoPedido():
 #Mi metodo más recortado
 def getAllPedidosEntregadosAtrasadosDeTiempo():
     pedidosEntregado = []
-    peticion = requests.get("http://")
+    peticion = requests.get("http://154.38171.54:5007/pedido?estado=Entregado")
     data = peticion.json()
 
 #SELECCIONAMOS TODo EL TEXTO Y PRESIONAMOS: CTRL + K + C --> Ponemos el #

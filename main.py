@@ -4,7 +4,7 @@ import re
 import os
 import sys
 import json
-
+import requests
 import msvcrt #Modulo para leer teclas sin bloqueo en windows
 
 
@@ -37,6 +37,7 @@ def procesar_tecla():
     
 
 def menuProducto():
+    while True:
         print("""
     ____  _                            _     __               __                                 
    / __ )(_)__  ____ _   _____  ____  (_)___/ /___     ____ _/ /  ____ ___  ___  ____  __  __    
@@ -59,6 +60,8 @@ def menuProducto():
             PostProducto.menu()
         if(opcion == 2):
             producto.menu()
+        if(opcion == 0):
+             break
 
 
 
@@ -76,6 +79,8 @@ def menuProducto():
 
 # En este caso, queremos hacer un menú que haga la recopilación de todos los filtros para que se escojan
 def menu():
+    while True:
+        os.system('clear')
         print("""
     __  ___                    ____       _            _             __
    /  |/  /__  ____  __  __   / __ \_____(_)___  _____(_)___  ____ _/ /
@@ -83,16 +88,19 @@ def menu():
  / /  / /  __/ / / / /_/ /  / ____/ /  / / / / / /__/ / /_/ / /_/ / /  
 /_/  /_/\___/_/ /_/\__,_/  /_/   /_/  /_/_/ /_/\___/_/ .___/\__,_/_/   
                                                     /_/                
-
+                    0. Cerrar programa
                     1. Cliente
                     2. Oficina
                     3. Empleado
                     4. Pedidos
                     5. Productos
                     6. PostProductos
+                    7. Menú de productos
     """)
 
         opcion = int(input("\nSeleccione una de las opciones: "))
+        # if(re.match(r'[0-9]+$', opcion) is not None):
+        #     opcion = int(opcion)
         if opcion == 1:
                 cliente.menu()
                 historial_menu.append(menu)
@@ -111,6 +119,10 @@ def menu():
         elif opcion == 6:
                 PostProducto.menu()
                 historial_menu.append(menu)
+        elif opcion == 7:
+                menuProducto()
+        elif opcion == 0:
+                break
         # Definimos función para regresar al menú anterior
                 
         def regresar_menu():
