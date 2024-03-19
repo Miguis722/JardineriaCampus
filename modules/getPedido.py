@@ -28,31 +28,31 @@ def getAllProcesoPedido():
 def getAllPedidosEntregadosAtrasadosDeTiempo():
     pedidosEntregado = []
     peticion = requests.get("http://")
-    data = peticion.json
+    data = peticion.json()
 
 #SELECCIONAMOS TODo EL TEXTO Y PRESIONAMOS: CTRL + K + C
     
 #Mi metodo
 # def getAllPedidosEntregadosAtrasadosDeTiempo():
 #     pedidosEntregados = []
-#     for val in getAllDataPedidos:
-#         if val.get("estado") == "Entregado":
-#             fechaEntrega = val.get("fechaEntrega")
-#             fecha_esperada = val.get("fecha_esperada")
-#             if fechaEntrega is not None and fecha_esperada is not None:
-#                 date_1 = "/".join(fechaEntrega.split("-")[::-1])
-#                 date_2 = "/".join(fecha_esperada.split("-")[::-1])
-#                 start = datetime.strptime(date_1, "%d/%m/%Y")
-#                 end = datetime.strptime(date_2, "%d/%m/%Y")
-#                 diff = end.date() - start.date()
-#                 if diff.days < 0:
-#                     pedidosEntregados.append({
-#                         "codigo_de_pedido": val.get("codigo_pedido"),
-#                         "codigo_de_cliente": val.get("codigo_cliente"),
-#                         "fecha_esperada": fecha_esperada,
-#                         "fechaEntrega": fechaEntrega
-#                     })
-#     return pedidosEntregados
+    for val in getAllDataPedidos:
+         if val.get("estado") == "Entregado":
+             fechaEntrega = val.get("fechaEntrega")
+             fecha_esperada = val.get("fecha_esperada")
+             if fechaEntrega is not None and fecha_esperada is not None:
+                 date_1 = "/".join(fechaEntrega.split("-")[::-1])
+                 date_2 = "/".join(fecha_esperada.split("-")[::-1])
+                 start = datetime.strptime(date_1, "%d/%m/%Y")
+                 end = datetime.strptime(date_2, "%d/%m/%Y")
+                 diff = end.date() - start.date()
+                 if diff.days < 0:
+                     pedidosEntregado.append({
+                         "codigo_de_pedido": val.get("codigo_pedido"),
+                         "codigo_de_cliente": val.get("codigo_cliente"),
+                         "fecha_esperada": fecha_esperada,
+                         "fechaEntrega": fechaEntrega
+                     })
+    return pedidosEntregado
 
 #Devuelve un listado con el código de pedido, código de cliente, fecha esperada
 #Y fecha de entrega de los pedidos cuya fecha de entrega ha sido al menos dos días antes de la fecha esperada.
