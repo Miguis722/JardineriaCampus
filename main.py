@@ -77,18 +77,16 @@ def menuProducto():
        # with open("./JardineriaCampus/storage/producto.json", "wb+") as f1:
         #    f1.write(data)
          #   f1.close()
-
+        
+      
 # En este caso, queremos hacer un menú que haga la recopilación de todos los filtros para que se escojan
 def menu():
     while True:
         os.system("Cleanmgr")
         print("""
-    __  ___                    ____       _            _             __
-   /  |/  /__  ____  __  __   / __ \_____(_)___  _____(_)___  ____ _/ /
-  / /|_/ / _ \/ __ \/ / / /  / /_/ / ___/ / __ \/ ___/ / __ \/ __ `/ / 
- / /  / /  __/ / / / /_/ /  / ____/ /  / / / / / /__/ / /_/ / /_/ / /  
-/_/  /_/\___/_/ /_/\__,_/  /_/   /_/  /_/_/ /_/\___/_/ .___/\__,_/_/   
-                                                    /_/                
+              
+                     Menu de busqueda
+              
                     0. Cerrar programa
                     1. Cliente
                     2. Oficina
@@ -143,6 +141,14 @@ def menu():
                 menu()
 menu()
 
+# Guardamos la decoración por si acaso (me da error :c )
+#     __  ___                    ____       _            _             __
+#    /  |/  /__  ____  __  __   / __ \_____(_)___  _____(_)___  ____ _/ /
+#   / /|_/ / _ \/ __ \/ / / /  / /_/ / ___/ / __ \/ ___/ / __ \/ __ `/ / 
+#  / /  / /  __/ / / / /_/ /  / ____/ /  / / / / / /__/ / /_/ / /_/ / /  
+# /_/  /_/\___/_/ /_/\__,_/  /_/   /_/  /_/_/ /_/\___/_/ .___/\__,_/_/   
+#                                                     /_/                
+              
 #def menu():
 #    contador = 1
 #    print("Menu Principal")
