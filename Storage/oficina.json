@@ -3,7 +3,7 @@
         {
             "codigo_oficina": "BCN-ES",
             "ciudad": "Barcelona",
-            "pais": "Espa\u00f1a",
+            "pais": "España",
             "region": "Barcelona",
             "codigo_postal": "08019",
             "telefono": "+34 93 3561182",
@@ -36,7 +36,7 @@
         {
             "codigo_oficina": "MAD-ES",
             "ciudad": "Madrid",
-            "pais": "Espa\u00f1a",
+            "pais": "España",
             "region": "Madrid",
             "codigo_postal": "28032",
             "telefono": "+34 91 7514487",
@@ -80,7 +80,7 @@
         {
             "codigo_oficina": "TAL-ES",
             "ciudad": "Talavera de la Reina",
-            "pais": "Espa\u00f1a",
+            "pais": "España",
             "region": "Castilla-LaMancha",
             "codigo_postal": "45632",
             "telefono": "+34 925 867231",
