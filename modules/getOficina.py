@@ -4,7 +4,7 @@ import requests
 
 #Servidor de Oficina
 def getAllDataOficina():
-    peticion = requests.get("http://172.16.106.120:5005")
+    peticion = requests.get("http://154.38.171.54:5005/oficinas")
     data = peticion.json()
     return data
 

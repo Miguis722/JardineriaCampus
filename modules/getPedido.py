@@ -5,7 +5,7 @@ from datetime import datetime
 
 #Servidor de Pedidos
 def getAllDataPedidos():
-    peticion = requests.get("http://172.16.106.112:5006")
+    peticion = requests.get("http://154.38.171.54:5007/pedidos")
     data = peticion.json()
     return data
 

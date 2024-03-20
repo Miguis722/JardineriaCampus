@@ -5,23 +5,23 @@ import json
 
 #json-server storage/producto.json -b 5001
 
-
+# http://154.38.171.54:5002/detalle_pedido
 
 #Servidor de Pagos
 def getAllDataPagos():
-	peticion = requests.get("http://192.168.80.16:5004")
+	peticion = requests.get("http://154.38.171.54:5006/pagos")
 	data= peticion.json()
 	return data
 
 #Servidor de clientes
 def getAllDataClientes():
-    peticion = requests.get("http://192.168.80.16:5003")
+    peticion = requests.get("http://154.38.171.54:5001/cliente")
     data = peticion.json()
     return data
 
 #Servidor de Empleados
 def getAllDataEmpleados():
-    peticion = requests.get("http://192.168.80.16:5002")
+    peticion = requests.get("http://154.38.171.54:5003/empleados")
     data = peticion.json()
     return data
 
