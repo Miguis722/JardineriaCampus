@@ -35,8 +35,8 @@ def procesar_tecla():
     #https://patorjk.com/software/taag/#p=display&h=2&v=2&f=Slant&t=Menu%20Principal
     #Está pagina web sirve para sacar el arte ASCII
     
-
-def menuProducto():
+if  (__name__== '__main__'):
+#def menuProducto():
     while True:
         os.system("cls")
         print("""

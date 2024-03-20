@@ -76,14 +76,21 @@ def menu():
 /_____/_/\___/_/ /_/|___/\___/_/ /_/_/\__,_/\____/   \__,_/_/  /_/ /_/ /_/\___/_/ /_/\__,_/   \__,_/\___/  / .___/\____/____/\__/  / .___/_/   \____/\__,_/\__,_/\___/\__/\____/____/  
                                                                                                           /_/                     /_/                                                  
 
+
+            0. Salir del programa
             1. Guardar  Productos
-            2. Salir del programa
-            3.
+            2. Eliminar un producto
+            3. Hola mundo
           
           
           """)
     opcion = int(input("\nSeleccione una de las opciones: "))
     if(opcion == 1):
         print(tabulate(postProducto()))
-    elif(opcion == 2):
+    elif(opcion ==2):
+        id = int(input("Por favor, introduzca el id a eliminar: "))
+        print(tabulate(deleteProducto(id)))
+    elif(opcion == 3):
+        print("Hola Mundo!")
+    elif(opcion == 0):
         exit()
