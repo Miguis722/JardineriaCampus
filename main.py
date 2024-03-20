@@ -5,7 +5,7 @@ import os
 import sys
 import json
 import requests
-import msvcrt #Modulo para leer teclas sin bloqueo en windows
+#import msvcrt #Modulo para leer teclas sin bloqueo en windows
 
 
 import modules.getClients as cliente
@@ -18,16 +18,16 @@ import modules.postProducto as PostProducto
 
 
 #Lista para almacenar el historial de menús
-historial_menu = []
+#historial_menu = []
 
-def procesar_tecla():
-    while True:
-        if msvcrt.kbhit():
-            key = msvcrt.getch()
-            if key == b'\x1b': #Verificar si la tecla presionada es ESC
-                return "atras"
-            else:
-                return key.decode('utf-8')
+# def procesar_tecla():
+#     while True:
+#         if msvcrt.kbhit():
+#             key = msvcrt.getch()
+#             if key == b'\x1b': #Verificar si la tecla presionada es ESC
+#                 return "atras"
+#             else:
+#                 return key.decode('utf-8')
 
 #En este caso, queremos hacer un menú que haga la recopilación de todos los filtros para que se escojan
 
@@ -35,8 +35,8 @@ def procesar_tecla():
     #https://patorjk.com/software/taag/#p=display&h=2&v=2&f=Slant&t=Menu%20Principal
     #Está pagina web sirve para sacar el arte ASCII
     
-if  (__name__== '__main__'):
-#def menuProducto():
+
+def menuProducto():
     while True:
         os.system("cls")
         print("""
@@ -64,7 +64,10 @@ if  (__name__== '__main__'):
         if(opcion == 0):
              break
 
-
+def menuclientes():
+      while True:
+            os.system("cls")
+            print("Holamundo!")
 
 
 
@@ -81,50 +84,53 @@ if  (__name__== '__main__'):
         #    f1.write(data)
          #   f1.close()
         
-      
+if  (__name__== '__main__'):
 # En este caso, queremos hacer un menú que haga la recopilación de todos los filtros para que se escojan
 # def menu():
-#     while True:
-    #  os.system("cls")
-#         print("""
+    while True:
+        os.system("cls")
+        print("""
               
-#                      Menu de busqueda
+                     Menu de busqueda
               
-#                     0. Cerrar programa
-#                     1. Cliente
-#                     2. Oficina
-#                     3. Empleado
-#                     4. Pedidos
-#                     5. Productos
-#                     6. PostProductos
-#                     7. Menú de productos
-#     """)
+                    0. Cerrar programa
+                    1. Cliente
+                    2. Oficina
+                    3. Empleado
+                    4. Pedidos
+                    5. Productos
+                    6. PostProductos
+                    7. Menú de productos
+    """)
 
-#         opcion = int(input("\nSeleccione una de las opciones: "))
-#         if(re.match(r'[0-9]+$', opcion) is not None):
-#              opcion = int(opcion)
-#         if opcion == 1:
-#                 cliente.menu()
-#                 historial_menu.append(menu)
-#         elif opcion == 2:
-#                 oficina.menu()
-#                 historial_menu.append(menu)
-#         elif opcion == 3:
-#                 empleado.menu()
-#                 historial_menu.append(menu)
-#         elif opcion == 4:
-#                 Pedidos.menu()
-#                 historial_menu.append(menu)
-#         elif opcion == 5:
-#                 producto.menu()
-#                 historial_menu.append(menu)
-#         elif opcion == 6:
-#                 PostProducto.menu()
-#                 historial_menu.append(menu)
-#         elif opcion == 7:
-#                 menuProducto()
-#         elif opcion == 0:
-#                 break
+        opcion = input("\nSeleccione una de las opciones: ")
+        if re.match(r'^[0-9]$', opcion) is not None:
+        #Ya funciono :>
+             opcion = int(opcion)
+
+        if opcion == 1:
+                cliente.menu()
+                #historial_menu.append(menu)
+        elif opcion == 2:
+                oficina.menu()
+                #historial_menu.append(menu)
+        elif opcion == 3:
+                empleado.menu()
+                #historial_menu.append(menu)
+        elif opcion == 4:
+                Pedidos.menu()
+                #historial_menu.append(menu)
+        elif opcion == 5:
+                producto.menu()
+                #historial_menu.append(menu)
+        elif opcion == 6:
+                PostProducto.menu()
+                #historial_menu.append(menu)
+        elif opcion == 7:
+                menuProducto()
+        elif opcion == 0:
+                 break
+        
         # Definimos función para regresar al menú anterior
                 
         # def regresar_menu():

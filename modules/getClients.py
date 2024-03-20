@@ -190,29 +190,30 @@ def menu():
         3. Obtener toda la información de un cliente según su limite de credito y ciudad que pertenece (ejemplo: 3000.0, San Francisco)
         4. Obtener toda la información de un cliente por medio de su ciudad
         5. Obtener toda la información de clientes en España y que estos tengan el representante de ventar codigo de 11 o 30
-        Si desea volver, precione la tecla: Esc
+        
+        Si desea volver, precione: 0
           
 """)
     opcion = int(input("\nSeleccione una de las opciones: "))
     if(opcion == 1):
         print(tabulate(getAllDataClientes(),headers="keys", tablefmt="rounded_grid"))
-        print("Presione ""ESC"" para volver al menú principal")
+        
     if(opcion == 2):
         numero = int(input("Ingrese el codigo del cliente: "))
         print(tabulate(getOneClienteCodigo(numero),headers="keys",tablefmt="rounded_grid"))
-        print("Presione ""ESC"" para volver al menú principal")
+        
     if(opcion == 3):
         limiteCredit = (input("Ingrese el limite de credito: "))
         ciudad = (input("Ingrese la ciudad a la que pertenece: "))
         print(tabulate(getAllClientCreditCiudad(limiteCredit, ciudad), headers="keys", tablefmt="rounded_grid"))
-        print("Presione ""ESC"" para volver al menú principal")
+        
     if(opcion == 4):
         ciudad = input("Ingrese la ciudad del cliente: ")
         print(tabulate(getAllClientCiudad(ciudad), headers="keys", tablefmt="rounded_grid"))
-        print("Presione ""ESC"" para volver al menú principal")
+        
     if(opcion ==5):
         print(tabulate(getAllClientesDeMadrid(), headers="keys", tablefmt="rounded_grid"))
-        print("Presione ""ESC"" para volver al menú principal")
+print("Si desea volver, precione: 0") 
 
 
 #GET CLIENTS : SOLUCIONADO Y DESARROLLADO EN SU TOTALIDAD, SI FUNCIONA, NO SE TOCA.
