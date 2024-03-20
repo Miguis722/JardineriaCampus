@@ -53,7 +53,7 @@ if  (__name__== '__main__'):
         
             1. Guardar, Actualizar y Eliminar productos
             2. Reportes de los productos
-            0. Regresar al menu principal
+            0. Salir del programa
           
             """)
         opcion = int(input("\nSelecione una de las opciones: "))
