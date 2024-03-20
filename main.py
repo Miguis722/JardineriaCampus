@@ -51,8 +51,8 @@ if  (__name__== '__main__'):
 \__,_/\___/  / .___/_/   \____/\__,_/\__,_/\___/\__/\____/____/                                  
             /_/                                                                                  
         
-            1. Reportes de los productos
-            2. Guardar, Actualizar y Eliminar productos
+            1. Guardar, Actualizar y Eliminar productos
+            2. Reportes de los productos
             0. Regresar al menu principal
           
             """)
