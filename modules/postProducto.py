@@ -28,7 +28,7 @@ def postProducto():
         }
     #json-server storage/producto.json -b 5002
    
-    peticion = requests.post("             ", data=json.dumps(producto, indent = 4).encode(("UTF-8")))
+    peticion = requests.post("http://154.38.171.54:5008/productos", data=json.dumps(producto, indent = 4).encode(("UTF-8")))
     res = peticion.json()
     res["Mensaje"] = "Producto Guardado"
     return [res]
