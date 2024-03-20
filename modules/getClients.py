@@ -173,8 +173,9 @@ def getAllClientesPagoRealizadoRepresentantedeventas ():
 
 
 def menu():
-    os.system("clear")
-    print("""
+    while True:
+        os.system("cls")
+        print("""
 
 
     ____                        __              __        _________            __           
@@ -194,26 +195,26 @@ def menu():
         Si desea volver, precione: 0
           
 """)
-    opcion = int(input("\nSeleccione una de las opciones: "))
-    if(opcion == 1):
-        print(tabulate(getAllDataClientes(),headers="keys", tablefmt="rounded_grid"))
-        
-    if(opcion == 2):
-        numero = int(input("Ingrese el codigo del cliente: "))
-        print(tabulate(getOneClienteCodigo(numero),headers="keys",tablefmt="rounded_grid"))
-        
-    if(opcion == 3):
-        limiteCredit = (input("Ingrese el limite de credito: "))
-        ciudad = (input("Ingrese la ciudad a la que pertenece: "))
-        print(tabulate(getAllClientCreditCiudad(limiteCredit, ciudad), headers="keys", tablefmt="rounded_grid"))
-        
-    if(opcion == 4):
-        ciudad = input("Ingrese la ciudad del cliente: ")
-        print(tabulate(getAllClientCiudad(ciudad), headers="keys", tablefmt="rounded_grid"))
-        
-    if(opcion ==5):
-        print(tabulate(getAllClientesDeMadrid(), headers="keys", tablefmt="rounded_grid"))
-print("Si desea volver, precione: 0") 
-
+        opcion = int(input("\nSeleccione una de las opciones: "))
+        if(opcion == 1):
+            print(tabulate(getAllDataClientes(),headers="keys", tablefmt="rounded_grid"))
+            input("Volver al menú: ")
+        elif(opcion == 2):
+            numero = int(input("Ingrese el codigo del cliente: "))
+            print(tabulate(getOneClienteCodigo(numero),headers="keys",tablefmt="rounded_grid"))
+            
+        elif(opcion == 3):
+            limiteCredit = (input("Ingrese el limite de credito: "))
+            ciudad = (input("Ingrese la ciudad a la que pertenece: "))
+            print(tabulate(getAllClientCreditCiudad(limiteCredit, ciudad), headers="keys", tablefmt="rounded_grid"))
+            
+        elif(opcion == 4):
+            ciudad = input("Ingrese la ciudad del cliente: ")
+            print(tabulate(getAllClientCiudad(ciudad), headers="keys", tablefmt="rounded_grid"))    
+        elif(opcion ==5):
+            print(tabulate(getAllClientesDeMadrid(), headers="keys", tablefmt="rounded_grid")) 
+        elif (opcion == 0):
+            break
+    input("Si desea volver, presione: 0")
 
 #GET CLIENTS : SOLUCIONADO Y DESARROLLADO EN SU TOTALIDAD, SI FUNCIONA, NO SE TOCA.

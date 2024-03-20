@@ -28,10 +28,18 @@ def postProducto():
         }
     #json-server storage/producto.json -b 5002
    
-    peticion = requests.post("http://154.38.171.54:5008/productos", data=json.dumps(producto, indent = 4).encode(("UTF-8")))
+   # Metodo 2
+    headers = {'Content-type': 'application/json', 'charset': 'UTF-8'}
+    peticion = requests.post("http://154.38.171.54:5008/productos", headers=headers, data=json.dumps(producto))
     res = peticion.json()
     res["Mensaje"] = "Producto Guardado"
     return [res]
+
+    # Metodo 1
+    # peticion = requests.post("http://154.38.171.54:5008/productos", data=json.dumps(producto, indent = 4).encode(("UTF-8")))
+    # res = peticion.json()
+    # res["Mensaje"] = "Producto Guardado"
+    # return [res]
 
 #Primera forma de eliminar  un dato (Metodo profesor: 1)
 #def DeleteProducto(id):
@@ -48,7 +56,7 @@ def postProducto():
 def deleteProducto(id):
     data = gP.getProductCodigo(id)
     if (len(data)):
-        peticion = requests.delete(f"http://.../productos/{id}")
+        peticion = requests.delete(f"http://172.16.102.108:5501/productos/{id}")
         if(peticion.status_code == 204):
             data.append({"message": "Producto eliminado correctamente"})
             return {
@@ -78,7 +86,7 @@ def menu():
 
 
             0. Salir del programa
-            1. Guardar  Productos
+            1. Guardar un producto
             2. Eliminar un producto
             3. Hola mundo
           
