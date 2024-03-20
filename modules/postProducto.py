@@ -50,7 +50,7 @@ def deleteProducto(id):
     if (len(data)):
         peticion = requests.delete(f"http://.../productos/{id}")
         if(peticion.status_code == 204):
-            data.append({"message": "producto eliminado correctamente"})
+            data.append({"message": "Producto eliminado correctamente"})
             return {
                 "body": data,
                 "status": peticion.status_code,
@@ -58,7 +58,7 @@ def deleteProducto(id):
         else:
             return {
                 "body": [{
-                    "message": "producto no encontrado",
+                    "message": "Producto no encontrado",
                     "id": id
                 }],
                 "status": 400,

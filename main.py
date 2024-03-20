@@ -38,7 +38,7 @@ def procesar_tecla():
 
 def menuProducto():
     while True:
-        os.system("Cleanmgr")
+        os.system("cls")
         print("""
     ____  _                            _     __               __                                 
    / __ )(_)__  ____ _   _____  ____  (_)___/ /___     ____ _/ /  ____ ___  ___  ____  __  __    
@@ -66,7 +66,10 @@ def menuProducto():
 
 
 
-#if  (__name__=='__main__'):
+
+
+
+#if  (__name__== '__main__'):
 
  #   with open("./JardineriaCampus/storage/producto.json", "r") as f:
   #      fichero = f.read()
@@ -80,66 +83,66 @@ def menuProducto():
         
       
 # En este caso, queremos hacer un menú que haga la recopilación de todos los filtros para que se escojan
-def menu():
-    while True:
-        os.system("Cleanmgr")
-        print("""
+# def menu():
+#     while True:
+    #  os.system("cls")
+#         print("""
               
-                     Menu de busqueda
+#                      Menu de busqueda
               
-                    0. Cerrar programa
-                    1. Cliente
-                    2. Oficina
-                    3. Empleado
-                    4. Pedidos
-                    5. Productos
-                    6. PostProductos
-                    7. Menú de productos
-    """)
+#                     0. Cerrar programa
+#                     1. Cliente
+#                     2. Oficina
+#                     3. Empleado
+#                     4. Pedidos
+#                     5. Productos
+#                     6. PostProductos
+#                     7. Menú de productos
+#     """)
 
-        opcion = int(input("\nSeleccione una de las opciones: "))
-        if(re.match(r'[0-9]+$', opcion) is not None):
-             opcion = int(opcion)
-        if opcion == 1:
-                cliente.menu()
-                historial_menu.append(menu)
-        elif opcion == 2:
-                oficina.menu()
-                historial_menu.append(menu)
-        elif opcion == 3:
-                empleado.menu()
-                historial_menu.append(menu)
-        elif opcion == 4:
-                Pedidos.menu()
-                historial_menu.append(menu)
-        elif opcion == 5:
-                producto.menu()
-                historial_menu.append(menu)
-        elif opcion == 6:
-                PostProducto.menu()
-                historial_menu.append(menu)
-        elif opcion == 7:
-                menuProducto()
-        elif opcion == 0:
-                break
+#         opcion = int(input("\nSeleccione una de las opciones: "))
+#         if(re.match(r'[0-9]+$', opcion) is not None):
+#              opcion = int(opcion)
+#         if opcion == 1:
+#                 cliente.menu()
+#                 historial_menu.append(menu)
+#         elif opcion == 2:
+#                 oficina.menu()
+#                 historial_menu.append(menu)
+#         elif opcion == 3:
+#                 empleado.menu()
+#                 historial_menu.append(menu)
+#         elif opcion == 4:
+#                 Pedidos.menu()
+#                 historial_menu.append(menu)
+#         elif opcion == 5:
+#                 producto.menu()
+#                 historial_menu.append(menu)
+#         elif opcion == 6:
+#                 PostProducto.menu()
+#                 historial_menu.append(menu)
+#         elif opcion == 7:
+#                 menuProducto()
+#         elif opcion == 0:
+#                 break
         # Definimos función para regresar al menú anterior
                 
-        def regresar_menu():
-            if historial_menu:
-                menu_anterior = historial_menu.pop()  # Obtener el menú anterior del historial
-                print("Regresando al menú anterior...")
-                menu_anterior()  # Ejecutar el menú anterior
-            else:
-                print("No hay menús anteriores.")
+        # def regresar_menu():
+        #     if historial_menu:
+        #         menu_anterior = historial_menu.pop()  # Obtener el menú anterior del historial
+        #         print("Regresando al menú anterior...")
+        #         menu_anterior()  # Ejecutar el menú anterior
+        #     else:
+        #         print("No hay menús anteriores.")
 
         # Hacemos los procesos principales del programa
-        while True:
-            accion = procesar_tecla()                
-            if accion == "atras":
-                regresar_menu()
-            else:
-                menu()
-menu()
+#         while True:
+#             accion = procesar_tecla()                
+#             if accion == "atras":
+#                 regresar_menu()
+#             else:
+#                 menu()
+# menu()
 
 # Guardamos la decoración por si acaso (me da error :c )
 #     __  ___                    ____       _            _             __
