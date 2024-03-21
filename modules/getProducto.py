@@ -1,7 +1,7 @@
 import os
 from tabulate  import tabulate
 import requests
-
+import re
 def getAllData():
     peticion = requests.get("http://154.38.171.54:5008/productos")
     data = peticion.json()
@@ -72,7 +72,7 @@ def  getAllInfoProducto(codigo):
 
 
 def menu():
-    os.system("clear")
+    os.system("cls")
     print("""
           
     
@@ -86,17 +86,22 @@ def menu():
                     1. Listar Productos Ornamentales con Stock Mayor o Igual a 100 (Metodo del profesor Miguel
                     2. Listar Productos Ornamentales con Stock Mayor o Igual a 100 (Mi metodo)
                     3. Buscar un producto por su código
-                    Si desea volver, precione la tecla: Esc
+                    
         
           
           """)
     opcion = int(input("\nSeleccione una de las opciones: "))
+    if re.match(r'^[0-3]+$', opcion) is not None:
+            opcion = int(opcion)
     if(opcion == 1):
         gama = (input("Ingrese la gama (gama, stock): "))
         print(tabulate(getAllPriceGama(gama), headers= "keys", tablefmt="rounded_grid"))
+        input("Si desea volver, presione: 0")
     elif(opcion == 2):
          gama = str(input("Ingrese la gama: "))
          print(tabulate(getAllStocksPriceGama(gama), headers= "keys", tablefmt="rounded_grid"))
+         input("Si desea volver, presione: 0")
     elif(opcion == 3):
          codigo = (input("Ingrese el código del producto: "))
          print(tabulate(getAllInfoProducto(codigo), headers= "keys", tablefmt="rounded_grid"))
+         input("Si desea volver, presione: 0")

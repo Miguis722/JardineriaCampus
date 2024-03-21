@@ -43,10 +43,10 @@ def menu():
 
 """)
           opcion = (input("\nSeleccione una de las opciones: "))
-          if re.match(r'^[0-3]+$', opcion) is not None:
+          if re.match(r'^[0-1]+$', opcion) is not None:
             opcion = int(opcion)
             if  opcion == 1:
-                print(tabulate(getAllPagosConPayPalEnEl2008()))
+                print(tabulate(getAllPagosConPayPalEnEl2008(), headers= "keys", tablefmt="rounded_grid"))
                 input("Si desea volver, presione: 0")
             elif opcion == 0:
                 break
