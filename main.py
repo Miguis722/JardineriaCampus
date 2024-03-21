@@ -105,6 +105,7 @@ def menuEmpleados():
                   empleado.menu()
             elif opcion == 0:
                 break
+#Menú Empleados hecho
 
 #Definimos el menú de Oficina, donde haremos que se elija si se desea modificar la info
 # O mirar la ya existente.
