@@ -20,7 +20,7 @@ def ValidacionDeDimension(dimensiones):
     val = re.match(r'^\s*[0-9]+\s*-\s*[0-9]+\s*$', dimensiones)
     return val
 
-def validacionDeNumeros(numero):
+def validacionDeNumerosC(numero):
     val = re.match(r'^\s*\d+(\.\d+)?\s*$', numero)
     return val
 
