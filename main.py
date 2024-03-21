@@ -16,6 +16,7 @@ import modules.getPagos as Pagos
 import modules.getProducto as producto
 import modules.postProducto as PostProducto
 import modules.crudClients as PostClients
+import modules.crudOficina as PostOficina
 
 #Lista para almacenar el historial de menús
 #historial_menu = []
@@ -35,6 +36,37 @@ import modules.crudClients as PostClients
     #https://patorjk.com/software/taag/#p=display&h=2&v=2&f=Slant&t=Menu%20Principal
     #Está pagina web sirve para sacar el arte ASCII
 
+def menuOficina():
+      while True:
+            os.system("cls")
+            print("""
+                  
+
+    __  ___                        __        ____  _____      _            
+   /  |/  /__  ____  __  __   ____/ /__     / __ \/ __(_)____(_)___  ____ _
+  / /|_/ / _ \/ __ \/ / / /  / __  / _ \   / / / / /_/ / ___/ / __ \/ __ `/
+ / /  / /  __/ / / / /_/ /  / /_/ /  __/  / /_/ / __/ / /__/ / / / / /_/ / 
+/_/  /_/\___/_/ /_/\__,_/   \__,_/\___/   \____/_/ /_/\___/_/_/ /_/\__,_/  
+                                                                           
+                  0. Volver atrás.
+                  1. Guardar, Actualizar o Eliminar Oficinas.
+                  2. Reportes de las oficinas.
+
+                  
+                  """)
+            opcion = input("\nSeleccione una de las opciones: ")
+            if re.match(r'^[0-2]$', opcion) is not None:
+                  opcion = int(opcion)
+            if opcion == 1:
+                  PostOficina.menu()
+            elif opcion == 2:
+                  oficina.menu()
+            elif opcion == 0:
+                  break
+
+
+#Definimos el menú de Clientes, donde haremos que se elija si se desea modificar la info
+# O mirar la ya existente.
 def menuClientes():
       while True:
             os.system("cls")
@@ -66,7 +98,8 @@ def menuClientes():
                   break
 
 
-
+#Definimos el menú de Producto, donde haremos que se elija si se desea modificar la info
+# O mirar la ya existente.
 def menuProducto():
     while True:
         os.system("cls")
@@ -120,7 +153,14 @@ if  (__name__== '__main__'):
         os.system("cls")
         print("""
               
-                     Menu de busqueda
+                    
+    __  ___             __         __        __                                    __     
+   /  |/  /__  ____  __/_/_   ____/ /__     / /_  __  ___________ ___  _____  ____/ /___ _
+  / /|_/ / _ \/ __ \/ / / /  / __  / _ \   / __ \/ / / / ___/ __ `/ / / / _ \/ __  / __ `/
+ / /  / /  __/ / / / /_/ /  / /_/ /  __/  / /_/ / /_/ (__  ) /_/ / /_/ /  __/ /_/ / /_/ / 
+/_/  /_/\___/_/ /_/\__,_/   \__,_/\___/  /_.___/\__,_/____/\__, /\__,_/\___/\__,_/\__,_/  
+                                                             /_/                          
+
               
                     0. Cerrar programa
                     1. Cliente
@@ -144,7 +184,8 @@ if  (__name__== '__main__'):
 
                 #historial_menu.append(menu)
         elif opcion == 2:
-                oficina.menu()
+                menuOficina()
+                #oficina.menu()
 
                 #historial_menu.append(menu)
         elif opcion == 3:
