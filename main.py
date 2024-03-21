@@ -15,7 +15,7 @@ import modules.getPedido as Pedidos
 import modules.getPagos as Pagos
 import modules.getProducto as producto
 import modules.postProducto as PostProducto
-
+import modules.crudClients as PostClients
 
 #Lista para almacenar el historial de menús
 #historial_menu = []
@@ -34,7 +34,38 @@ import modules.postProducto as PostProducto
 #def menu():
     #https://patorjk.com/software/taag/#p=display&h=2&v=2&f=Slant&t=Menu%20Principal
     #Está pagina web sirve para sacar el arte ASCII
-    
+
+def menuClientes():
+      while True:
+            os.system("cls")
+            print("""
+                  
+
+                  
+    __  ___                    _________            __           
+   /  |/  /__  ____  __  __   / ____/ (_)__  ____  / /____  _____
+  / /|_/ / _ \/ __ \/ / / /  / /   / / / _ \/ __ \/ __/ _ \/ ___/
+ / /  / /  __/ / / / /_/ /  / /___/ / /  __/ / / / /_/  __(__  ) 
+/_/  /_/\___/_/ /_/\__,_/   \____/_/_/\___/_/ /_/\__/\___/____/  
+                                                                 
+
+            0. Volver atrás
+            1. Guardar, Actualizar y Eliminar Clientes.
+            2. Reportes de los Clientes
+            
+
+                  """)
+            opcion = input("\nSeleccione una de las opciones: ")
+            if re.match(r'^[0-2]$', opcion) is not None:
+                  opcion = int(opcion)
+            if opcion == 1:
+                  PostClients.menu()
+            elif opcion == 2:
+                  cliente.menu()
+            elif opcion == 0:
+                  break
+
+
 
 def menuProducto():
     while True:
@@ -53,10 +84,12 @@ def menuProducto():
         
             1. Guardar, Actualizar y Eliminar productos
             2. Reportes de los productos
-            0. Salir del programa
+            0. Volver atrás
           
             """)
-        opcion = int(input("\nSelecione una de las opciones: "))
+        opcion = input("\nSelecione una de las opciones: ")
+        if re.match(r'^[0-2]$', opcion) is not None:
+              opcion = int(opcion)
         if(opcion == 1):
             PostProducto.menu()
         if(opcion == 2):
@@ -64,10 +97,6 @@ def menuProducto():
         if(opcion == 0):
              break
 
-def menuclientes():
-      while True:
-            os.system("cls")
-            print("Holamundo!")
 
 
 
@@ -99,35 +128,44 @@ if  (__name__== '__main__'):
                     3. Empleado
                     4. Pedidos
                     5. Productos
-                    6. PostProductos
-                    7. Menú de productos
+                    
     """)
-
+#                     6. PostProductos
+#                     7. Menú de productos - PostProductos
+        
         opcion = input("\nSeleccione una de las opciones: ")
-        if re.match(r'^[0-9]$', opcion) is not None:
+        if re.match(r'^[0-6]$', opcion) is not None:
         #Ya funciono :>
              opcion = int(opcion)
 
         if opcion == 1:
-                cliente.menu()
+                menuClientes()
+                #cliente.menu()
+
                 #historial_menu.append(menu)
         elif opcion == 2:
                 oficina.menu()
+
                 #historial_menu.append(menu)
         elif opcion == 3:
                 empleado.menu()
+
                 #historial_menu.append(menu)
         elif opcion == 4:
                 Pedidos.menu()
+
                 #historial_menu.append(menu)
         elif opcion == 5:
-                producto.menu()
+                menuProducto()
+                #producto.menu()
+
                 #historial_menu.append(menu)
         elif opcion == 6:
                 PostProducto.menu()
+
                 #historial_menu.append(menu)
-        elif opcion == 7:
-                menuProducto()
+        #elif opcion == 7:
+                #menuProducto()
         elif opcion == 0:
                  break
         

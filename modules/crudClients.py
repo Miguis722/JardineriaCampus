@@ -179,7 +179,7 @@ def deletClient(id):
         else:
             return print("Producto no encontrado")
 
-
+#Deseamos actualizar la información de un cliente en especifico
 def updateCliente(id):
     data = getAllDataClientes(id)
     if(len(data)):
@@ -279,7 +279,7 @@ def updateCliente(id):
         headers = {'Content-Type': 'application/json', 'charset': 'utf-8'}
         peticion = requests.put(f"http://154.38.171.54:5001/cliente/{id}", headers=headers, data=json.dumps(cliente))
         res = peticion.json()
-        res["Mensaje"] = "Cliente Actualizado"
+        res["Mensaje"] = "Cliente Actualizado Correctamente"
         return [res]
     
     else:
