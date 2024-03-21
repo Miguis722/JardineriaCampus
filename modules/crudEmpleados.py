@@ -29,8 +29,80 @@ def getCodigoEmplaedo(id):
 
 
 def postEmpleados():
+    empleado ={}
     while True:
-        print("Hola mundo")
+        try:
+            if not empleado.get("codigo_empleado"):
+                
+                codigo = input("Ingrese el codigo del empleado: ")
+                if(re.match(r'^[0-9]+$', codigo) is not None):
+                    datas = getCodigoEmplaedo(codigo)
+                    if datas:
+                        print(tabulate(datas, headers="keys", tablefmt="rounded_grid"))
+                        raise Exception("el codigo del empleado ya existe")
+                    else:
+                        codigo = int(codigo)
+                        empleado["codigo_empleado"] = codigo
+                else: 
+                    raise Exception("El codigo  del producto no cumple con los parametros preesta")
+            if not empleado.get("nombre"):
+                
+                nombre = input("Ingrese el nombre del empleado: ")
+                if(re.match(r"^[A-Z][a-záéíóúñ]+(?:\s+[A-Z][a-záéíóúñ]+)*$", nombre) is not None):
+                    empleado["nombre"] = nombre
+                else:
+                    raise Exception ("El nombre del empleado no cumple con los parametros preestablecidos")
+            if not empleado.get("apellido1"):
+                
+                apellido_1= input("Ingrese el apellido 1 del empleado: ")
+                if(re.match(r"^[A-Z][a-záéíóúñ]+(?:\s+[A-Z][a-záéíóúñ]+)*$", apellido_1) is not None):
+                    empleado["apellido1"] = apellido_1
+                else:
+                    raise Exception ("El apellido del empleado proporcionado no cumple con los parametros preestablecidos.")
+            if not empleado.get("apellido2"):
+                
+                apellido_2 = input("Ingrese el apellido 2 del empleado: ")
+                if(re.match(r"^[A-Z][a-záéíóúñ]+(?:\s+[A-Z][a-záéíóúñ]+)*$", apellido_2) is not None):
+                    empleado["apellido2"] = apellido_2
+                else:
+                    raise Exception ("El apellido del empleado no cumple con los parametros preestablecidos.")
+            if not empleado.get("extension"):
+                
+                extension = input("Ingrese la extension del empleado: ")
+                if(re.match(r"^[0-9\s-]+$", extension) is not None):
+                    empleado["extension"] = extension
+                else:
+                    raise Exception ("La extension del contacto del cliente no cumple con los parametros preestablecidos.")
+            if not empleado.get("email"):
+                email = input("Ingrese el correo del empleado: ")
+                empleado["email"] = email
+            if not empleado.get("codigo_oficina"):
+                codigo_oficina = input("Ingrese el codigo de la oficina del empleado: ")
+                if(re.match(r"^[A-Z-]+$", codigo_oficina) is not None):
+                    empleado["codigo_oficina"] = codigo_oficina
+                else:
+                    raise Exception ("El codigo de oficina del empleado no cumple con los parametros preestablecidos.")
+            if not empleado.get("codigo_jefe"):
+                codigo_jefe = input("Ingrese el codigo del jefe: ")
+                if(re.match(r"^[0-9]+$", codigo_jefe) is not None):
+                    empleado["codigo_jefe"] = codigo_jefe
+                else:
+                    raise Exception ("El codigo del jefe del empleado no cumple con los parametros preestablecidos. ")
+            if not empleado.get("puesto"):
+                puesto = input("Ingrese el puesto del empleado: ")
+                if(re.match(r"^[A-Z][a-zA-Z\s]+$", puesto) is not None):
+                    empleado["puesto"] = puesto
+                    break
+                else:
+                    raise Exception ("El puesto del empleado no cumple con los parametros preestablecidos.")
+        except Exception as error:
+            print(error)
+
+    headers = {'Content-Type': 'application/json', 'charset': 'utf-8'}
+    peticion = requests.post("http://154.38.171.54:5003/empleados",  headers=headers , data=json.dumps(empleado, indent=4))
+    res = peticion.json()
+    tablaEmpleado = [empleado]
+    print(tabulate(tablaEmpleado, headers="keys", tablefmt="rounded_grid"))
        
 def deleteEmpleado(id):
     data = getCodigoEmplaedo(id)
