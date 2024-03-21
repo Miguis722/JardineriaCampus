@@ -212,25 +212,28 @@ def menu():
 
         
           
-          1. Agregar un pago nuevo
-          2. Eliminar un pago 
-          3. Actualizar un pago 
-          0. Atras
+          1. Agregar información de un pago nuevo
+          2. Eliminar información de un pago ya existente
+          3. Actualizar información de un pago ya existente
 
     """)
+        
         opcion = input("\nSeleccione una de las opciones: ")
         if(Procesos.ValidacionDeNumeros(opcion) is not None):
             opcion = int(opcion)
             if(opcion >= 0 and opcion <= 3):
                 if (opcion == 1):
                     print(tabulate(AddDataPagos(), headers="keys", tablefmt="rounded_grid"))
+                    input("Si desea volver, presione: 0")
                 elif (opcion == 2):
                     id = int(input("Ingrese el codigo del pago que deseas eliminar: "))
                     print(tabulate(deletePago(id), tablefmt="rounded_grid"))
+                    input("Si desea volver, presione: 0")
                 elif (opcion == 3):
                     id = int(input("Ingrese el codigo del pago que deseas actualizar: "))
                     print(tabulate(updatePago(id), headers="keys", tablefmt="rounded_grid"))
+                    input("Si desea volver, presione: 0")
                 elif (opcion == 0):
                     break
-            input("Precione una tecla para continuar.........")
+            
 
