@@ -2,6 +2,8 @@ import os
 from tabulate  import tabulate
 import requests
 import re
+
+#Servidor de Productos
 def getAllData():
     peticion = requests.get("http://154.38.171.54:5008/productos")
     data = peticion.json()
