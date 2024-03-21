@@ -161,6 +161,6 @@ def menu():
                 input("Si desea volver, presione: 0")
             elif opcion == 3:
                 input("Si desea volver, presione: 0")
-                print("Que hubo")
+                
             elif opcion == 0:
                 break

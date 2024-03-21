@@ -309,7 +309,7 @@ def menu():
               2. Eliminar información de un cliente
               3. Modificar información del cliente
 
-            Si desea volver, precione: 0
+            Si desea volver, presione: 0
 
 """)
         opcion = (input("\nSeleccione una de las opciones: "))
@@ -318,13 +318,12 @@ def menu():
             if  opcion == 1:
                 print(tabulate(AddInfoClientes()))
                 input("Si desea volver, presione: 0")
-                
             elif opcion == 2:
                 id = int(input("Por favor, introduzca el id a eliminar: "))
                 print(tabulate(deletClient(id)))
                 input("Si desea volver, presione: 0")
             elif opcion == 3:
+                print(tabulate(updateCliente(id)))
                 input("Si desea volver, presione: 0")
-                print("Que hubo")
             elif opcion == 0:
                 break

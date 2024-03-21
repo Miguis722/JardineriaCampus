@@ -190,7 +190,9 @@ def updateOficina(id):
             }]   
 
 def menu():
-    print("""
+    while True:
+        os.system("cls")
+        print("""
           
 
     __  ___             __         __              _____      _            
@@ -206,16 +208,19 @@ def menu():
           3. Actualizar una oficina.
 
 
-""")
-    opcion = int(input("\nSeleccione una de las opciones: "))
-    if re.match(r'^[0-3]+$', opcion) is not None:
-            opcion = int(opcion)
-    if(opcion == 1):
-        print(tabulate(postOficina()))
-    elif(opcion ==2):
-        id = int(input("Por favor, introduzca el id a eliminar: "))
-        print(tabulate(deleteOficina(id)))
-    elif(opcion == 3):
-        print("Hola Mundo!")
-    elif(opcion == 0):
-        exit()
+    """)
+        opcion = int(input("\nSeleccione una de las opciones: "))
+        if re.match(r'^[0-3]+$', opcion) is not None:
+                opcion = int(opcion)
+        if(opcion == 1):
+            print(tabulate(postOficina()))
+            input("Si desea volver, presione: 0")
+        elif(opcion ==2):
+            id = int(input("Por favor, introduzca el id a eliminar: "))
+            print(tabulate(deleteOficina(id)))
+            input("Si desea volver, presione: 0")
+        elif(opcion == 3):
+            print(tabulate(updateOficina(id)))
+            input("Si desea volver, presione: 0")
+        elif(opcion == 0):
+                break
