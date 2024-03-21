@@ -17,6 +17,8 @@ import modules.getProducto as producto
 import modules.postProducto as PostProducto
 import modules.crudClients as PostClients
 import modules.crudOficina as PostOficina
+import modules.crudEmpleados as PostEmpleados
+import modules.crudPedidos as PostPedidos
 
 #Lista para almacenar el historial de menús
 #historial_menu = []
@@ -40,7 +42,72 @@ import modules.crudOficina as PostOficina
 # https://www.termius.com/download/windows
 
 
+#Definimos el menú de Pedidos, donde haremos que se elija si se desea modificar la info
+# O mirar la ya existente.
+def menuPedidos():
+      while True:
+            os.system("cls")
+            print("""
+                  
+                  
+    __  ___             __         __        ____           ___     __          
+   /  |/  /__  ____  __/_/_   ____/ /__     / __ \___  ____/ (_)___/ /___  _____
+  / /|_/ / _ \/ __ \/ / / /  / __  / _ \   / /_/ / _ \/ __  / / __  / __ \/ ___/
+ / /  / /  __/ / / / /_/ /  / /_/ /  __/  / ____/  __/ /_/ / / /_/ / /_/ (__  ) 
+/_/  /_/\___/_/ /_/\__,_/   \__,_/\___/  /_/    \___/\__,_/_/\__,_/\____/____/  
+                                                                                
 
+                  0. Volver atrás.
+                  1. Guardar, Actualizar o Eliminar Pedidos.
+                  2. Reportes de los Pedidos.
+                  
+                  """)
+            
+            opcion =input("\nSeleccione una de las opciones: ")
+            if re.match(r'^[0-2]$', opcion) is not None:
+                  opcion = int(opcion)
+            if opcion == 1:
+                  PostPedidos.menu()
+            elif opcion == 2:
+                  Pedidos.menu()
+            elif opcion == 0:
+                break
+
+
+#Definimos el menú de Empleados, donde haremos que se elija si se desea modificar la info
+# O mirar la ya existente.
+def menuEmpleados():
+      while True:
+            os.system("cls")
+            print("""
+                  
+    __  ___             __         __        ______                __               __          
+   /  |/  /__  ____  __/_/_   ____/ /__     / ____/___ ___  ____  / /__  ____ _____/ /___  _____
+  / /|_/ / _ \/ __ \/ / / /  / __  / _ \   / __/ / __ `__ \/ __ \/ / _ \/ __ `/ __  / __ \/ ___/
+ / /  / /  __/ / / / /_/ /  / /_/ /  __/  / /___/ / / / / / /_/ / /  __/ /_/ / /_/ / /_/ (__  ) 
+/_/  /_/\___/_/ /_/\__,_/   \__,_/\___/  /_____/_/ /_/ /_/ .___/_/\___/\__,_/\__,_/\____/____/  
+                                                        /_/                                     
+
+
+                0. Volver atrás.
+                1. Guardar, Actualizar o Eliminar Empleadops.
+                2. Reportes de los Empleados.
+                  
+                  
+                  """)
+
+            opcion = input("\nSeleccione una de las opciones: ")
+            if re.match(r'^[0-2]$', opcion) is not None:
+                  opcion = int(opcion)
+            if opcion == 1:
+                  PostEmpleados.menu()
+            elif opcion == 2:
+                  empleado.menu()
+            elif opcion == 0:
+                break
+
+#Definimos el menú de Oficina, donde haremos que se elija si se desea modificar la info
+# O mirar la ya existente.
 def menuOficina():
       while True:
             os.system("cls")
