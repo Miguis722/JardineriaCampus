@@ -123,7 +123,7 @@ def updateOficina(id):
                     if(Procesos.validacionCoidgoOficina(codigo) is not None):
                         data = getAllCodigoOficina(codigo)
                         if(data):
-                            print(tabulate(data, headers="keys", tablefmt="github"))
+                            print(tabulate(data, headers="keys", tablefmt="fancy_grid"))
                             raise Exception("El codigo oficina ya existe")
                         else:
                             oficina["codigo_oficina"] = codigo

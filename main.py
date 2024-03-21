@@ -135,7 +135,7 @@ def menuOficina():
                   oficina.menu()
             elif opcion == 0:
                   break
-
+#Menú oficina hecho
 
 #Definimos el menú de Clientes, donde haremos que se elija si se desea modificar la info
 # O mirar la ya existente.
@@ -168,7 +168,7 @@ def menuClientes():
                   cliente.menu()
             elif opcion == 0:
                   break
-
+#Menú clientes hecho
 
 #Definimos el menú de Producto, donde haremos que se elija si se desea modificar la info
 # O mirar la ya existente.
@@ -201,7 +201,7 @@ def menuProducto():
             producto.menu()
         if(opcion == 0):
              break
-
+#Menú productos hechos
 
 
 
