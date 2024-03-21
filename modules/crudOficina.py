@@ -208,6 +208,8 @@ def menu():
 
 """)
     opcion = int(input("\nSeleccione una de las opciones: "))
+    if re.match(r'^[0-3]+$', opcion) is not None:
+            opcion = int(opcion)
     if(opcion == 1):
         print(tabulate(postOficina()))
     elif(opcion ==2):

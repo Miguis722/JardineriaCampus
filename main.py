@@ -19,6 +19,7 @@ import modules.crudClients as PostClients
 import modules.crudOficina as PostOficina
 import modules.crudEmpleados as PostEmpleados
 import modules.crudPedidos as PostPedidos
+import modules.crudPagos as PostPagos
 
 #Lista para almacenar el historial de menús
 #historial_menu = []
@@ -41,6 +42,36 @@ import modules.crudPedidos as PostPedidos
 #Para hacer un servidor en linea usamos el programa termius:
 # https://www.termius.com/download/windows
 
+#Definimos el menú de Pedidos, donde haremos que se elija si se desea modificar la info
+# O mirar la ya existente.
+def menuPagos():
+      while True:
+            os.system("cls")
+            print("""
+                  
+                  
+    __  ___             __         __        ____           ___     __          
+   /  |/  /__  ____  __/_/_   ____/ /__     / __ \___  ____/ (_)___/ /___  _____
+  / /|_/ / _ \/ __ \/ / / /  / __  / _ \   / /_/ / _ \/ __  / / __  / __ \/ ___/
+ / /  / /  __/ / / / /_/ /  / /_/ /  __/  / ____/  __/ /_/ / / /_/ / /_/ (__  ) 
+/_/  /_/\___/_/ /_/\__,_/   \__,_/\___/  /_/    \___/\__,_/_/\__,_/\____/____/  
+                                                                                
+
+                  0. Volver atrás.
+                  1. Guardar, Actualizar o Eliminar Pagos.
+                  2. Reportes de los Pagos.
+                  
+                  """)
+            
+            opcion =input("\nSeleccione una de las opciones: ")
+            if re.match(r'^[0-2]$', opcion) is not None:
+                  opcion = int(opcion)
+            if opcion == 1:
+                  PostPagos.menu()
+            elif opcion == 2:
+                  Pagos.menu()
+            elif opcion == 0:
+                break
 
 #Definimos el menú de Pedidos, donde haremos que se elija si se desea modificar la info
 # O mirar la ya existente.
@@ -284,7 +315,7 @@ if  (__name__== '__main__'):
                  break
         
 
-        
+
         # Definimos función para regresar al menú anterior
                 
         # def regresar_menu():
