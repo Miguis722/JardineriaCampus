@@ -36,6 +36,11 @@ import modules.crudOficina as PostOficina
     #https://patorjk.com/software/taag/#p=display&h=2&v=2&f=Slant&t=Menu%20Principal
     #Está pagina web sirve para sacar el arte ASCII
 
+#Para hacer un servidor en linea usamos el programa termius:
+# https://www.termius.com/download/windows
+
+
+
 def menuOficina():
       while True:
             os.system("cls")
