@@ -247,7 +247,7 @@ if  (__name__== '__main__'):
 #                     7. Menú de productos - PostProductos
         
         opcion = input("\nSeleccione una de las opciones: ")
-        if re.match(r'^[0-6]$', opcion) is not None:
+        if re.match(r'^[0-5]$', opcion) is not None:
         #Ya funciono :>
              opcion = int(opcion)
 
@@ -262,11 +262,11 @@ if  (__name__== '__main__'):
 
                 #historial_menu.append(menu)
         elif opcion == 3:
-                empleado.menu()
+                menuEmpleados()
 
                 #historial_menu.append(menu)
         elif opcion == 4:
-                Pedidos.menu()
+                menuPedidos()
 
                 #historial_menu.append(menu)
         elif opcion == 5:
@@ -274,14 +274,16 @@ if  (__name__== '__main__'):
                 #producto.menu()
 
                 #historial_menu.append(menu)
-        elif opcion == 6:
-                PostProducto.menu()
+       # elif opcion == 6:
+               # PostProducto.menu()
 
                 #historial_menu.append(menu)
         #elif opcion == 7:
                 #menuProducto()
         elif opcion == 0:
                  break
+        
+
         
         # Definimos función para regresar al menú anterior
                 
